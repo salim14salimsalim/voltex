@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLTEX — Custom Clothing, Printing &amp; Design</title>
+    <meta name="description"
+        content="VOLTEX creates customized clothing, printing, professional designs, and branded apparel for individuals, teams, events, and businesses.">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ffffff'/%3E%3Cpath d='M9 9 L16 24 L23 9' stroke='%230a0a0c' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* ============================================================
+           VOLTEX DESIGN SYSTEM — dark theme + white accent
+           ============================================================ */
+        :root {
+            --vx-bg: #000000;
+            --vx-bg-soft: #000000;
+            --vx-surface: #070709;
+            --vx-surface-2: #0c0c0f;
+            --vx-border: rgba(255, 255, 255, .08);
+            --vx-border-strong: rgba(255, 255, 255, .16);
+            --vx-text: #f5f5f6;
+            --vx-text-2: rgba(255, 255, 255, .64);
+            --vx-text-3: rgba(255, 255, 255, .42);
+            --vx-purple: #ffffff;
+            --vx-purple-bright: #ffffff;
+            --vx-purple-dark: #d4d4d8;
+            --vx-grad: linear-gradient(135deg, #ffffff 0%, #f4f4f5 48%, #d9d9de 100%);
+            --vx-grad-soft: linear-gradient(180deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .04));
+            --vx-font-display: 'Lexend', 'Inter', system-ui, sans-serif;
+            --vx-font-body: 'Inter', system-ui, sans-serif;
+            --vx-font-mono: 'Source Code Pro', ui-monospace, monospace;
+            --vx-radius: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--vx-bg);
+            color: var(--vx-text);
+            font-family: var(--vx-font-body);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: #ffffff;
+            color: #0a0a0c;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--vx-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a34;
+            border-radius: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--vx-purple-dark);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--vx-purple);
+            outline-offset: 2px;
+        }
+
+        h1, h2, h3, h4, h5, .display-1, .display-2, .display-3, .display-4, .display-5 {
+            font-family: var(--vx-font-display);
+            color: var(--vx-text);
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            color: var(--vx-text);
+            text-decoration: none;
+        }
+
+        /* ---------- Utilities ---------- */
+        .vx-mono {
+            font-family: var(--vx-font-mono);
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .vx-label {
+            font-family: var(--vx-font-mono);
+            font-size: .72rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--vx-purple-bright);
+            font-weight: 600;
+        }
+
+        .vx-grad-text {
+            background: var(--vx-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .vx-muted {
+            color: var(--vx-text-2);
+        }
+
+        .vx-dots-bg {
+            background-image: radial-gradient(rgba(255, 255, 255, .055) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .vx-section {
+            scroll-margin-top: 82px;
+            position: relative;
+        }
+
+        .vx-border {
+            border: 1px solid var(--vx-border);
+        }
+
+        .vx-surface {
+            background: var(--vx-surface);
+            border: 1px solid var(--vx-border);
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            border-radius: 999px;
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+
+        .btn-vx {
+            background: var(--vx-grad);
+            color: #0a0a0c;
+            border: none;
+            box-shadow: 0 8px 24px -8px rgba(255, 255, 255, .35);
+            transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+        }
+
+        .btn-vx:hover,
+        .btn-vx:focus {
+            color: #0a0a0c;
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+            box-shadow: 0 12px 32px -8px rgba(255, 255, 255, .45);
+        }
+
+        .btn-vx-outline {
+            color: var(--vx-text);
+            border: 1px solid var(--vx-border-strong);
+            background: transparent;
+            transition: border-color .25s ease, color .25s ease, transform .25s ease, background .25s ease;
+        }
+
+        .btn-vx-outline:hover,
+        .btn-vx-outline:focus {
+            color: #fff;
+            border-color: var(--vx-purple);
+            background: rgba(255, 255, 255, .08);
+            transform: translateY(-2px);
+        }
+
+        .btn-vx-ghost {
+            color: var(--vx-text);
+            background: transparent;
+            border: none;
+            transition: color .25s ease;
+        }
+
+        .btn-vx-ghost:hover,
+        .btn-vx-ghost:focus {
+            color: var(--vx-purple-bright);
+        }
+
+        .btn-vx-light {
+            color: var(--vx-text);
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, .5);
+            transition: background .25s ease, color .25s ease, transform .25s ease, border-color .25s ease;
+        }
+
+        .btn-vx-light:hover,
+        .btn-vx-light:focus {
+            color: #0a0a0c;
+            background: #fff;
+            border-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px -10px rgba(255, 255, 255, .45);
+        }
+
+        /* ---------- Navbar ---------- */
+        .vx-navbar {
+            background: rgba(0, 0, 0, .85);
+            -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--vx-border);
+            padding-top: .9rem;
+            padding-bottom: .9rem;
+        }
+
+        .vx-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+        }
+
+        .vx-brand:hover,
+        .vx-brand:focus {
+            color: var(--vx-text);
+        }
+
+        .vx-brand-mark {
+            height: 46px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .vx-brand-name {
+            height: 34px;
+            width: auto;
+            max-width: 62vw;
+            object-fit: contain;
+            display: block;
+            mix-blend-mode: screen;
+        }
+
+        @media (max-width: 575.98px) {
+            .vx-brand-mark { height: 40px; }
+            .vx-brand-name { height: 24px; }
+        }
+
+        .vx-navbar .nav-link {
+            color: var(--vx-text-2);
+            font-weight: 500;
+            font-size: .95rem;
+            padding: .45rem .9rem;
+            border-radius: 999px;
+            transition: color .2s ease, background .2s ease;
+        }
+
+        .vx-navbar .nav-link:hover,
+        .vx-navbar .nav-link:focus {
+            color: #fff;
+            background: rgba(255, 255, 255, .05);
+        }
+
+        .vx-navbar .nav-link[aria-current="page"] {
+            color: var(--vx-purple-bright);
+        }
+
+        .vx-navbar .navbar-toggler {
+            border: 1px solid var(--vx-border-strong);
+            border-radius: 10px;
+            padding: .45rem .6rem;
+        }
+
+        .vx-navbar .navbar-toggler-icon {
+            background-image: none;
+            width: 20px;
+            height: 2px;
+            position: relative;
+            background: var(--vx-text);
+            box-shadow: 0 6px 0 var(--vx-text), 0 -6px 0 var(--vx-text);
+            border-radius: 2px;
+        }
+
+        /* ---------- Hero ---------- */
+        .vx-hero {
+            padding-top: 10.5rem;
+            padding-bottom: 9rem;
+            position: relative;
+        }
+
+        .vx-hero-photo {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 32px 80px -24px rgba(0, 0, 0, .9);
+            max-height: 560px;
+        }
+
+        .vx-hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .vx-hero-title {
+            font-weight: 800;
+            font-size: clamp(2.35rem, 5.2vw, 4rem);
+            line-height: 1.04;
+        }
+
+        .vx-hero-art {
+            position: relative;
+            max-width: 520px;
+            margin-left: auto;
+        }
+
+        .vx-hero-panel {
+            position: relative;
+            border-radius: 28px;
+            border: 1px solid var(--vx-border-strong);
+            background:
+                radial-gradient(380px 260px at 50% 0%, rgba(255, 255, 255, .14), transparent 70%),
+                var(--vx-surface);
+            padding: 2.2rem;
+            overflow: hidden;
+        }
+
+        .vx-hero-panel::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: .5;
+            pointer-events: none;
+        }
+
+        .vx-hero-panel > .vx-monobadge {
+            position: relative;
+            z-index: 1;
+        }
+
+        .vx-tee {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .vx-tee-path {
+            stroke: rgba(255, 255, 255, .92);
+            stroke-width: 4.5;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+            fill: rgba(255, 255, 255, .015);
+        }
+
+        .vx-tee-print {
+            fill: none;
+            stroke: var(--vx-grad);
+            stroke-width: 11;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .vx-float {
+            position: absolute;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .6rem .9rem;
+            border-radius: 14px;
+            border: 1px solid var(--vx-border-strong);
+            background: rgba(20, 20, 26, .92);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, .7);
+            animation: vxFloat 5.5s ease-in-out infinite;
+        }
+
+        .vx-float i {
+            color: var(--vx-purple-bright);
+        }
+
+        .vx-float small {
+            font-weight: 600;
+            color: var(--vx-text);
+            white-space: nowrap;
+        }
+
+        .vx-float-1 {
+            top: 8%;
+            left: -6%;
+        }
+
+        .vx-float-2 {
+            top: 34%;
+            right: -8%;
+            animation-delay: 1.2s;
+        }
+
+        .vx-float-3 {
+            bottom: 10%;
+            left: -3%;
+            animation-delay: 2.4s;
+        }
+
+        @keyframes vxFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @media (max-width: 1199.98px) {
+            .vx-float-1 { left: 0; }
+            .vx-float-2 { right: 0; }
+        }
+
+        @media (max-width: 575.98px) {
+            .vx-float-2 { display: none; }
+            .vx-float-1 { left: -2%; }
+            .vx-float-3 { left: 2%; }
+        }
+
+        /* ---------- Value strip ---------- */
+        .vx-strip {
+            border-top: 1px solid var(--vx-border);
+            border-bottom: 1px solid var(--vx-border);
+            background: var(--vx-bg-soft);
+        }
+
+        .vx-strip-item {
+            padding: 1.6rem 1rem;
+            text-align: center;
+            border-left: 1px solid var(--vx-border);
+            transition: background .25s ease;
+        }
+
+        .vx-strip-item:first-child {
+            border-left: none;
+        }
+
+        .vx-strip-item:hover {
+            background: rgba(255, 255, 255, .06);
+        }
+
+        .vx-strip-item h3 {
+            font-size: .95rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            margin-bottom: .35rem;
+            color: var(--vx-text);
+        }
+
+        .vx-strip-item h3 span {
+            color: var(--vx-purple-bright);
+        }
+
+        .vx-strip-item p {
+            font-size: .82rem;
+            color: var(--vx-text-3);
+            margin: 0;
+        }
+
+        /* ---------- Cards ---------- */
+        .vx-card {
+            background: var(--vx-surface);
+            border: 1px solid var(--vx-border);
+            border-radius: var(--vx-radius);
+            transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease;
+            height: 100%;
+        }
+
+        .vx-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, .45);
+            background: var(--vx-surface-2);
+            box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .12);
+        }
+
+        .vx-icon-tile {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--vx-purple-bright);
+            background: var(--vx-grad-soft, rgba(255, 255, 255, .12));
+            border: 1px solid rgba(255, 255, 255, .28);
+            transition: transform .3s ease, background .3s ease;
+        }
+
+        .vx-card:hover .vx-icon-tile {
+            background: var(--vx-grad);
+            color: #0a0a0c;
+            transform: scale(1.06) rotate(-4deg);
+        }
+
+        /* ---------- How it works ---------- */
+        .vx-step {
+            position: relative;
+            text-align: center;
+        }
+
+        .vx-step-num {
+            font-family: var(--vx-font-mono);
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            color: var(--vx-text);
+        }
+
+        .vx-timeline {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-top: 0;
+        }
+
+        .vx-timeline::before {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 6%;
+            right: 6%;
+            height: 2px;
+            background: rgba(255, 255, 255, .25);
+        }
+
+        .vx-timeline .vx-step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 0 .5rem;
+        }
+
+        .vx-timeline .vx-step-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--vx-font-mono);
+            font-size: .85rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 6px rgba(0, 0, 0, 1), 0 0 0 8px rgba(255, 255, 255, .2);
+        }
+
+        .vx-timeline .vx-step-content {
+            margin-top: 1.4rem;
+            padding: 0 .25rem;
+        }
+
+        .vx-timeline .vx-step-content h3 {
+            font-size: .95rem;
+            font-weight: 700;
+            margin-bottom: .4rem;
+            color: #ffffff;
+        }
+
+        .vx-timeline .vx-step-content p {
+            font-size: .82rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, .55);
+            margin: 0;
+        }
+
+        .vx-hiw-img-wrap {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 32px 80px -24px rgba(0, 0, 0, .9);
+            width: 88%;
+            margin: 0 auto;
+        }
+
+        .vx-hiw-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        @media (min-width: 992px) {
+            .vx-hiw-img-wrap { width: 82%; }
+        }
+
+        @media (max-width: 767.98px) {
+            .vx-timeline {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding-left: 34px;
+            }
+            .vx-timeline::before {
+                top: 22px;
+                bottom: 22px;
+                left: 22px;
+                right: auto;
+                width: 2px;
+                height: auto;
+            }
+            .vx-timeline .vx-step {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+            .vx-timeline .vx-step-content {
+                margin-top: 0;
+                text-align: left;
+            }
+        }
+
+        /* ---------- Chips ---------- */
+        .vx-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .55rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--vx-border);
+            background: var(--vx-surface);
+            color: var(--vx-text-2);
+            font-size: .9rem;
+            font-weight: 500;
+            transition: border-color .25s ease, color .25s ease, transform .25s ease, background .25s ease;
+        }
+
+        .vx-chip:hover {
+            border-color: var(--vx-purple);
+            color: var(--vx-text);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, .08);
+        }
+
+        .vx-chip i {
+            color: var(--vx-purple-bright);
+        }
+
+        /* ---------- Feature list (Why VOLTEX) ---------- */
+        .vx-feature {
+            display: flex;
+            gap: 1.2rem;
+            padding: 1.4rem;
+            border: 1px solid var(--vx-border);
+            border-radius: 16px;
+            background: var(--vx-bg-soft);
+            transition: border-color .25s ease, background .25s ease, transform .25s ease;
+            height: 100%;
+        }
+
+        .vx-feature:hover {
+            border-color: rgba(255, 255, 255, .45);
+            background: var(--vx-surface);
+            transform: translateY(-3px);
+        }
+
+        .vx-feature-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            color: var(--vx-purple-bright);
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .25);
+        }
+
+        .vx-feature h4 {
+            font-size: 1.02rem;
+            margin-bottom: .35rem;
+            font-weight: 600;
+        }
+
+        .vx-feature p {
+            color: var(--vx-text-3);
+            font-size: .9rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ---------- Panels ---------- */
+        .vx-panel {
+            border: 1px solid var(--vx-border-strong);
+            border-radius: 28px;
+            background:
+                radial-gradient(520px 300px at 15% 10%, rgba(255, 255, 255, .13), transparent 60%),
+                var(--vx-surface);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vx-panel-purple {
+            background:
+                radial-gradient(560px 340px at 80% 0%, rgba(255, 255, 255, .12), transparent 62%),
+                radial-gradient(420px 300px at 0% 100%, rgba(255, 255, 255, .08), transparent 60%),
+                var(--vx-surface);
+            border: 1px solid rgba(255, 255, 255, .35);
+        }
+
+        .vx-panel-glow {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, .28), transparent 70%);
+            filter: blur(10px);
+            pointer-events: none;
+        }
+
+        /* ---------- Forms ---------- */
+        .vx-form .form-control,
+        .vx-form .form-select,
+        .vx-form .form-label {
+            border-radius: 12px;
+            background-color: var(--vx-bg-soft);
+            border: 1px solid var(--vx-border);
+            color: var(--vx-text);
+        }
+
+        .vx-form .form-control::placeholder {
+            color: var(--vx-text-3);
+        }
+
+        .vx-form .form-control:focus,
+        .vx-form .form-select:focus {
+            border-color: var(--vx-purple);
+            box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .18);
+            background-color: var(--vx-bg-soft);
+            color: var(--vx-text);
+        }
+
+        .vx-form .form-label {
+            color: var(--vx-text-2);
+            font-size: .85rem;
+            font-weight: 500;
+        }
+
+        /* ---------- Footer ---------- */
+        .vx-footer {
+            background: var(--vx-bg-soft);
+            border-top: 1px solid var(--vx-border);
+        }
+
+        .vx-footer a {
+            color: var(--vx-text-2);
+            transition: color .2s ease;
+        }
+
+        .vx-footer a:hover,
+        .vx-footer a:focus {
+            color: var(--vx-purple-bright);
+        }
+
+        .vx-footer .vx-foot-title {
+            font-family: var(--vx-font-mono);
+            font-size: .72rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--vx-text-3);
+            margin-bottom: 1rem;
+        }
+
+.vx-social {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid var(--vx-border);
+            background: var(--vx-surface);
+            color: var(--vx-text-2);
+            transition: border-color .25s ease, color .25s ease, transform .25s ease, background .25s ease;
+        }
+
+        .vx-social:hover {
+            border-color: var(--vx-purple);
+            color: var(--vx-purple-bright);
+            background: rgba(255, 255, 255, .1);
+            transform: translateY(-3px);
+        }
+
+        .vx-nav-socials {
+            display: flex;
+            gap: .65rem;
+            flex-wrap: wrap;
+        }
+        .vx-nav-socials .vx-social {
+            width: 54px;
+            height: 54px;
+            font-size: 1.45rem;
+        }
+        .vx-nav-socials-li {
+            display: list-item;
+        }
+        @media (min-width: 992px) {
+            .vx-nav-socials-li { display: none; }
+            .vx-nav-socials { display: none; }
+        }
+
+        .vx-social-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.8rem 1.5rem 2.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .07);
+            background: rgba(255, 255, 255, .025);
+            color: #fff;
+            text-decoration: none;
+            transition: border-color .35s ease, transform .35s ease, background .35s ease;
+            min-height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+        .vx-social-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, var(--vx-sc-color) 0%, transparent 72%);
+            opacity: 0;
+            transition: opacity .4s ease;
+            pointer-events: none;
+        }
+        .vx-social-card:hover {
+            border-color: var(--vx-sc-color);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, .05);
+        }
+        .vx-social-card:hover::before {
+            opacity: .1;
+        }
+        .vx-social-card:active {
+            transform: translateY(-4px);
+        }
+        .vx-sc-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.55rem;
+            background: var(--vx-sc-color);
+            color: #fff;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+            transition: transform .35s ease;
+        }
+        .vx-social-card:hover .vx-sc-icon {
+            transform: scale(1.1);
+        }
+        .vx-sc-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: .2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .vx-sc-handle {
+            font-size: .82rem;
+            opacity: .5;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 575.98px) {
+            .vx-social-card { min-height: 180px; padding: 2rem 1rem 1.6rem; }
+            .vx-sc-icon { width: 50px; height: 50px; font-size: 1.3rem; }
+        }
+
+        /* ---------- Reviews ---------- */
+        .vx-review-marquee {
+            overflow: hidden;
+            padding: .25rem 0 1rem;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+        .vx-review-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+            animation: vxMarquee 40s linear infinite;
+        }
+        .vx-review-marquee:hover .vx-review-track {
+            animation-play-state: paused;
+        }
+        @keyframes vxMarquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .vx-review-item {
+            flex: 0 0 320px;
+        }
+        .vx-review {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .vx-review-stars {
+            color: #ffffff;
+            font-size: .95rem;
+            letter-spacing: .12em;
+        }
+        .vx-review-text {
+            color: var(--vx-text-2);
+            font-size: .95rem;
+            line-height: 1.65;
+            font-style: italic;
+        }
+        .vx-review-avatar {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            background: #ffffff;
+            color: #000000;
+            font-size: 1rem;
+        }
+
+        /* ---------- Social (black & white) ---------- */
+        .vx-social-bw {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .75rem;
+            width: 130px;
+            padding: 1.6rem 1rem 1.4rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .5);
+            background: transparent;
+            color: #ffffff;
+            text-decoration: none;
+            transition: background .3s ease, color .3s ease, border-color .3s ease, transform .3s ease;
+        }
+        .vx-social-bw i {
+            font-size: 2.4rem;
+            line-height: 1;
+        }
+        .vx-social-bw span {
+            font-size: .9rem;
+            font-weight: 600;
+        }
+        .vx-social-bw:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            transform: translateY(-6px);
+        }
+
+        .vx-contact-link {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: 600;
+            text-underline-offset: 3px;
+            transition: color .2s ease;
+        }
+        .vx-contact-link:hover {
+            color: rgba(255, 255, 255, .7);
+        }
+
+        /* ---------- Back to top ---------- */
+        .back-to-top {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            opacity: 0;
+            transform: translateY(12px) scale(.98);
+            transition: opacity .28s ease, transform .28s ease, visibility .28s;
+            visibility: hidden;
+            z-index: 1070;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--vx-grad);
+            border: none;
+            color: #0a0a0c;
+            box-shadow: 0 10px 28px -8px rgba(255, 255, 255, .5);
+        }
+
+        .back-to-top:focus {
+            outline: none;
+            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .5);
+        }
+
+        .back-to-top--visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .back-to-top,
+            .vx-float,
+            .vx-card,
+            .btn,
+            .vx-chip,
+            .vx-feature {
+                transition: none;
+                animation: none;
+            }
+            html { scroll-behavior: auto; }
+            * { animation-duration: .01ms !important; }
+        }
+
+        .accordion-button:not(.collapsed)::after,
+        .accordion-button::after {
+            filter: none;
+        }
+
+        /* ---------- Lightbox ---------- */
+        .vx-lb-trigger {
+            cursor: zoom-in;
+            transition: opacity .2s ease;
+        }
+        .vx-lb-trigger:hover {
+            opacity: .88;
+        }
+
+        .vx-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, .92);
+            padding: 1.5rem;
+        }
+        .vx-lightbox.show {
+            display: flex;
+        }
+        .vx-lightbox img {
+            max-width: 92vw;
+            max-height: 86vh;
+            border-radius: 8px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .8);
+        }
+        .vx-lb-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            background: none;
+            border: 0;
+            color: #fff;
+            font-size: 2.1rem;
+            line-height: 1;
+            cursor: pointer;
+            opacity: .85;
+        }
+        .vx-lb-close:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar navbar-expand-lg fixed-top vx-navbar">
+        <div class="container">
+            <a class="navbar-brand vx-brand" href="#home" aria-label="VOLTEX home">
+                <img src="./assets/img/white.png" alt="VOLTEX logo mark" class="vx-brand-mark" width="469"
+                    height="1008">
+                <img src="./assets/img/name.png" alt="VOLTEX" class="vx-brand-name" width="1580" height="231">
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#vxNav"
+                aria-controls="vxNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="vxNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item vx-nav-socials-li">
+                        <div class="d-flex gap-2 mt-3 vx-nav-socials">
+                            <a class="vx-social" href="https://www.instagram.com/vol_tex7?igsi=eTMzZGZsZmRlaHln" target="_blank" rel="noopener" aria-label="VOLTEX on Instagram" title="Instagram">
+                                <i class="bi bi-instagram" aria-hidden="true"></i>
+                            </a>
+                            <a class="vx-social" href="https://www.facebook.com/profile.php?id=61593866157599" target="_blank" rel="noopener" aria-label="VOLTEX on Facebook" title="Facebook">
+                                <i class="bi bi-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a class="vx-social" href="https://www.tiktok.com/@vol_tex7?_r=1&_t=ZS-99INaBV5c2O" target="_blank" rel="noopener" aria-label="VOLTEX on TikTok" title="TikTok">
+                                <i class="bi bi-tiktok" aria-hidden="true"></i>
+                            </a>
+                            <a class="vx-social" href="https://wa.me/213558340669" target="_blank" rel="noopener" aria-label="VOLTEX on WhatsApp" title="WhatsApp">
+                                <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                            </a>
+                            <a class="vx-social" href="https://t.me/aziz_benallou" target="_blank" rel="noopener" aria-label="VOLTEX on Telegram" title="Telegram">
+                                <i class="bi bi-telegram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="#contact" class="btn btn-vx btn-lg px-5 py-3">Start Your Order</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="vx-hero vx-section">
+        <div class="container">
+            <div class="row align-items-center g-6 g-lg-8">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <p class="vx-label mb-4">
+                        <span class="d-inline-block border rounded-pill px-3 py-2"
+                            style="border-color: rgba(255,255,255,.4) !important;">
+                            Custom Clothing &middot; Printing &middot; Design &middot; Branding
+                        </span>
+                    </p>
+                    <h1 class="vx-hero-title mb-4">
+                        Custom Clothing.<br>
+                        <span>Your Ideas. Your Identity.</span>
+                    </h1>
+                    <p class="lead mb-5" style="max-width: 520px; color: #ffffff;">
+                        We turn your ideas into high-quality customized clothing, prints, and creative designs —
+                        made for individuals, teams, events, and businesses.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact" class="btn btn-vx btn-lg px-5 py-3">Start Your Order</a>
+                        <a href="#services" class="btn btn-vx-outline btn-lg px-5 py-3">Explore Our Services</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="vx-hero-photo">
+                        <img src="./assets/img/salim back.png" alt="VOLTEX custom clothing showcase">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ VALUE STRIP ============ -->
+    <section class="vx-strip" aria-label="Our core values">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-6 col-lg vx-strip-item" data-aos="fade-up">
+                    <h3><span>C</span>USTOM</h3>
+                    <p>Made around your idea.</p>
+                </div>
+                <div class="col-6 col-lg vx-strip-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3><span>Q</span>UALITY</h3>
+                    <p>Quality-focused production.</p>
+                </div>
+                <div class="col-6 col-lg vx-strip-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3><span>F</span>AST</h3>
+                    <p>Fast and organized delivery.</p>
+                </div>
+                <div class="col-6 col-lg vx-strip-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3><span>F</span>LEXIBLE</h3>
+                    <p>Individual and large orders.</p>
+                </div>
+                <div class="col-6 col-lg vx-strip-item" data-aos="fade-up" data-aos-delay="400">
+                    <h3><span>E</span>ASY</h3>
+                    <p>Simple ordering experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="vx-section py-10 py-xl-12">
+        <div class="container">
+            <div class="text-center mx-auto mb-10 mb-lg-11" style="max-width: 760px;" data-aos="fade-up">
+                <p class="vx-label mb-3">What We Do</p>
+                <h2 class="display-6 fw-bold mb-3">What We Do</h2>
+                <p class="lead vx-muted mb-0">From your first idea to the finished product, VOLTEX brings your vision to
+                    life.</p>
+            </div>
+
+            <div class="row g-6 g-lg-8">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                    <div class="vx-card p-5 p-lg-6">
+                        <span class="vx-icon-tile mb-5"><i class="bi bi-person-arms-up" aria-hidden="true"></i></span>
+                        <h3 class="fs-5 fw-semibold">Custom Clothing</h3>
+                        <p class="vx-muted mb-0">Personalized clothing designed around your style, colors, size, and
+                            requirements.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+                    <div class="vx-card p-5 p-lg-6">
+                        <span class="vx-icon-tile mb-5"><i class="bi bi-people" aria-hidden="true"></i></span>
+                        <h3 class="fs-5 fw-semibold">Team &amp; Group Clothing</h3>
+                        <p class="vx-muted mb-0">Custom apparel for sports teams, groups, clubs, universities, and
+                            communities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+                    <div class="vx-card p-5 p-lg-6">
+                        <span class="vx-icon-tile mb-5"><i class="bi bi-briefcase" aria-hidden="true"></i></span>
+                        <h3 class="fs-5 fw-semibold">Business &amp; Corporate Clothing</h3>
+                        <p class="vx-muted mb-0">Professional customized clothing and branded apparel for companies and
+                            small businesses.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="240">
+                    <div class="vx-card p-5 p-lg-6">
+                        <span class="vx-icon-tile mb-5"><i class="bi bi-stars" aria-hidden="true"></i></span>
+                        <h3 class="fs-5 fw-semibold">Event Clothing</h3>
+                        <p class="vx-muted mb-0">Custom clothing design and printing for events, celebrations,
+                            campaigns, and special occasions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="320">
+                    <div class="vx-card p-5 p-lg-6">
+                        <span class="vx-icon-tile mb-5"><i class="bi bi-palette" aria-hidden="true"></i></span>
+                        <h3 class="fs-5 fw-semibold">Design &amp; Visual Identity</h3>
+                        <p class="vx-muted mb-0">Professional logo, visual identity, and print-ready design services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="vx-card p-5 p-lg-6">
+                        <span class="vx-icon-tile mb-5"><i class="bi bi-printer" aria-hidden="true"></i></span>
+                        <h3 class="fs-5 fw-semibold">Printing &amp; Branding</h3>
+                        <p class="vx-muted mb-0">Bring logos, artwork, and brand identities to life through clothing
+                            printing and branded products.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section id="how-it-works" class="vx-section py-10 py-xl-12">
+        <div class="container">
+            <div class="text-center mx-auto mb-10 mb-lg-11" style="max-width: 760px;" data-aos="fade-up">
+                <p class="vx-label mb-3">How It Works</p>
+                <h2 class="display-6 fw-bold mb-3">How It Works</h2>
+                <p class="lead vx-muted mb-0">A simple process from idea to finished order.</p>
+            </div>
+
+            <div class="vx-timeline" data-aos="fade-up" data-aos-delay="80">
+                <div class="vx-step">
+                    <div class="vx-step-dot">01</div>
+                    <div class="vx-step-content">
+                        <h3>Share Your Idea</h3>
+                        <p>Send us your idea, design, logo, reference, or inspiration.</p>
+                    </div>
+                </div>
+                <div class="vx-step">
+                    <div class="vx-step-dot">02</div>
+                    <div class="vx-step-content">
+                        <h3>Design &amp; Prepare</h3>
+                        <p>We transform your idea into a professional, print-ready design.</p>
+                    </div>
+                </div>
+                <div class="vx-step">
+                    <div class="vx-step-dot">03</div>
+                    <div class="vx-step-content">
+                        <h3>Customize</h3>
+                        <p>Choose clothing, colors, sizes, and customization details.</p>
+                    </div>
+                </div>
+                <div class="vx-step">
+                    <div class="vx-step-dot">04</div>
+                    <div class="vx-step-content">
+                        <h3>Quality Check</h3>
+                        <p>Your order is reviewed to ensure the expected quality.</p>
+                    </div>
+                </div>
+                <div class="vx-step">
+                    <div class="vx-step-dot">05</div>
+                    <div class="vx-step-content">
+                        <h3>Receive Your Order</h3>
+                        <p>Your finished order is ready for delivery or collection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ INDIVIDUAL CUSTOMIZATION ============ -->
+    <section class="vx-section py-10 py-xl-12">
+        <div class="container">
+            <div class="row align-items-center g-6 g-lg-10">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="vx-hiw-img-wrap">
+                        <img src="./assets/img/3.png" alt="For Individuals - custom clothing" class="vx-hiw-img">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="120">
+                    <p class="vx-label mb-3">For Individuals</p>
+                    <h2 class="display-6 fw-bold mb-4">Wear Something That's Yours.</h2>
+                    <p class="lead vx-muted mb-5">Express your personality through clothing designed around your ideas,
+                        interests, style, and creativity.</p>
+                    <div class="d-flex flex-wrap gap-2 mb-6">
+                        <span class="vx-chip"><i class="bi bi-person"></i> Personal style</span>
+                        <span class="vx-chip"><i class="bi bi-gift"></i> Personalized gifts</span>
+                        <span class="vx-chip"><i class="bi bi-emoji-smile"></i> Anime &amp; manga-inspired designs</span>
+                        <span class="vx-chip"><i class="bi bi-controller"></i> Gaming &amp; digital culture</span>
+                        <span class="vx-chip"><i class="bi bi-lightbulb"></i> Unique clothing ideas</span>
+                        <span class="vx-chip"><i class="bi bi-calendar-heart"></i> Special occasions</span>
+                    </div>
+                    <a href="#contact" class="btn btn-vx btn-lg px-5 py-3">Customize Your Clothing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="vx-section py-10 py-xl-12"
+        style="background: var(--vx-bg-soft); border-top:1px solid var(--vx-border); border-bottom:1px solid var(--vx-border);">
+        <div class="container">
+            <div class="text-center mx-auto mb-10 mb-lg-11" style="max-width: 720px;" data-aos="fade-up">
+                <p class="vx-label mb-3">Products</p>
+                <h2 class="display-6 fw-bold mb-3">Customize Your Look</h2>
+                <p class="lead vx-muted mb-0">Ready-made to be made yours — starting points for whatever you imagine.</p>
+            </div>
+            <div class="row g-4 g-lg-5 justify-content-center">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="vx-card p-4 text-center h-100">
+                        <button type="button" class="vx-lb-trigger mx-auto mb-4 overflow-hidden rounded-4 d-block"
+                            style="width:100%; max-width: 240px; aspect-ratio: 1; border:1px solid rgba(255,255,255,.3); padding:0; background:none;"
+                            data-src="./assets/img/cust/Unisex T Shirt.jpeg" data-alt="T-Shirts"
+                            aria-label="View T-Shirts image">
+                            <img src="./assets/img/cust/Unisex T Shirt.jpeg" alt="T-Shirts"
+                                style="width:100%; height:100%; object-fit: cover; display:block;">
+                        </button>
+                        <h3 class="fs-6 fw-semibold mb-2">T-Shirts</h3>
+                        <p class="vx-muted small mb-0">Custom T-shirts designed around your idea.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="120">
+                    <div class="vx-card p-4 text-center h-100">
+                        <button type="button" class="vx-lb-trigger mx-auto mb-4 overflow-hidden rounded-4 d-block"
+                            style="width:100%; max-width: 240px; aspect-ratio: 1; border:1px solid rgba(255,255,255,.3); padding:0; background:none;"
+                            data-src="./assets/img/cust/Black Oversized Heavyweight T-Shirt _ Premium Unisex Graphic Tee.jpeg"
+                            data-alt="Custom Apparel" aria-label="View Custom Apparel image">
+                            <img src="./assets/img/cust/Black Oversized Heavyweight T-Shirt _ Premium Unisex Graphic Tee.jpeg"
+                                alt="Custom Apparel" style="width:100%; height:100%; object-fit: cover; display:block;">
+                        </button>
+                        <h3 class="fs-6 fw-semibold mb-2">Custom Apparel</h3>
+                        <p class="vx-muted small mb-0">Personalized clothing made to your requirements.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+                    <div class="vx-card p-4 text-center h-100">
+                        <button type="button" class="vx-lb-trigger mx-auto mb-4 overflow-hidden rounded-4 d-block"
+                            style="width:100%; max-width: 240px; aspect-ratio: 1; border:1px solid rgba(255,255,255,.3); padding:0; background:none;"
+                            data-src="./assets/img/cust/URBAN Oversized Unisex Streetwear Tee _ Japanese Rooftop Style.jpeg"
+                            data-alt="Branded Clothing" aria-label="View Branded Clothing image">
+                            <img src="./assets/img/cust/URBAN Oversized Unisex Streetwear Tee _ Japanese Rooftop Style.jpeg"
+                                alt="Branded Clothing" style="width:100%; height:100%; object-fit: cover; display:block;">
+                        </button>
+                        <h3 class="fs-6 fw-semibold mb-2">Branded Clothing</h3>
+                        <p class="vx-muted small mb-0">Professional apparel for businesses, teams, and organizations.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="360">
+                    <div class="vx-card p-4 text-center h-100">
+                        <button type="button" class="vx-lb-trigger mx-auto mb-4 overflow-hidden rounded-4 d-block"
+                            style="width:100%; max-width: 240px; aspect-ratio: 1; border:1px solid rgba(255,255,255,.3); padding:0; background:none;"
+                            data-src="./assets/img/cust/Choose Yourself Oversize T-Shirt Modern Streetwear.jpeg"
+                            data-alt="Streetwear" aria-label="View Streetwear image">
+                            <img src="./assets/img/cust/Choose Yourself Oversize T-Shirt Modern Streetwear.jpeg"
+                                alt="Streetwear" style="width:100%; height:100%; object-fit: cover; display:block;">
+                        </button>
+                        <h3 class="fs-6 fw-semibold mb-2">Streetwear</h3>
+                        <p class="vx-muted small mb-0">Oversized modern fits for a bold everyday look.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY VOLTEX (ABOUT) ============ -->
+    <section id="about" class="vx-section py-10 py-xl-12">
+        <div class="container">
+            <div class="text-center mx-auto mb-10 mb-lg-11" style="max-width: 720px;" data-aos="fade-up">
+                <p class="vx-label mb-3">About VOLTEX</p>
+                <h2 class="display-6 fw-bold mb-3">Why VOLTEX?</h2>
+                <p class="lead vx-muted mb-0">A custom studio built around one simple idea: your imagination, made
+                    real.</p>
+            </div>
+            <div class="row g-5 g-lg-8">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="vx-feature">
+                        <span class="vx-feature-icon"><i class="bi bi-person-check" aria-hidden="true"></i></span>
+                        <div>
+                            <h4>Made for You</h4>
+                            <p>Customization built around your requirements.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+                    <div class="vx-feature">
+                        <span class="vx-feature-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+                        <div>
+                            <h4>Quality First</h4>
+                            <p>Attention to quality across design, customization, printing, and preparation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+                    <div class="vx-feature">
+                        <span class="vx-feature-icon"><i class="bi bi-lightning-charge" aria-hidden="true"></i></span>
+                        <div>
+                            <h4>Fast &amp; Flexible</h4>
+                            <p>From individual pieces to larger orders, we adapt to your needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="240">
+                    <div class="vx-feature">
+                        <span class="vx-feature-icon"><i class="bi bi-click" aria-hidden="true"></i></span>
+                        <div>
+                            <h4>Easy Ordering</h4>
+                            <p>A straightforward experience from idea to finished product.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="320">
+                    <div class="vx-feature">
+                        <span class="vx-feature-icon"><i class="bi bi-brush" aria-hidden="true"></i></span>
+                        <div>
+                            <h4>Professional Design</h4>
+                            <p>Creative, print-ready designs that help your clothing or brand stand out.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8" data-aos="fade-up">
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <span class="vx-chip"><i class="bi bi-tag"></i> Attractive pricing</span>
+                    <span class="vx-chip"><i class="bi bi-box-seam"></i> Product variety</span>
+                    <span class="vx-chip"><i class="bi bi-eye"></i> Transparent process</span>
+                    <span class="vx-chip"><i class="bi bi-life-preserver"></i> After-sales support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ QUALITY & CUSTOMER CARE ============ -->
+    <section class="vx-section py-10 py-xl-12"
+        style="background: var(--vx-bg-soft); border-top:1px solid var(--vx-border); border-bottom:1px solid var(--vx-border);">
+        <div class="container">
+            <div class="text-center mx-auto mb-10 mb-lg-11" style="max-width: 720px;" data-aos="fade-up">
+                <p class="vx-label mb-3">Quality &amp; Customer Care</p>
+                <h2 class="display-6 fw-bold mb-3">Built on Care, From Order to Delivery</h2>
+            </div>
+            <div class="row g-6 g-lg-8">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="vx-card p-5 text-center h-100">
+                        <span class="vx-icon-tile mb-4 mx-auto"><i class="bi bi-clipboard2-check"
+                                aria-hidden="true"></i></span>
+                        <h3 class="fs-6 fw-bold mb-2">Quality Checked</h3>
+                        <p class="vx-muted mb-0 small">Orders are reviewed before completion.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+                    <div class="vx-card p-5 text-center h-100">
+                        <span class="vx-icon-tile mb-4 mx-auto"><i class="bi bi-gift" aria-hidden="true"></i></span>
+                        <h3 class="fs-6 fw-bold mb-2">Carefully Prepared</h3>
+                        <p class="vx-muted mb-0 small">Products are prepared and packaged with attention to detail.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+                    <div class="vx-card p-5 text-center h-100">
+                        <span class="vx-icon-tile mb-4 mx-auto"><i class="bi bi-headset" aria-hidden="true"></i></span>
+                        <h3 class="fs-6 fw-bold mb-2">Customer Support</h3>
+                        <p class="vx-muted mb-0 small">We assist customers throughout the ordering process.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+                    <div class="vx-card p-5 text-center h-100">
+                        <span class="vx-icon-tile mb-4 mx-auto"><i class="bi bi-life-preserver"
+                                aria-hidden="true"></i></span>
+                        <h3 class="fs-6 fw-bold mb-2">After-Sales Support</h3>
+                        <p class="vx-muted mb-0 small">We remain available after the order is completed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="vx-section py-10 py-xl-12"
+        style="background: radial-gradient(circle at 25% 20%, rgba(255,255,255,.04), transparent 45%), radial-gradient(circle at 75% 85%, rgba(255,255,255,.03), transparent 45%), var(--vx-bg);">
+        <div class="container">
+            <div class="text-center mx-auto mb-9 mb-lg-10" style="max-width: 640px;" data-aos="fade-up">
+                <p class="vx-label mb-3">Reviews</p>
+                <h2 class="display-6 fw-bold mb-4">What People Say About VOLTEX</h2>
+                <p class="lead vx-muted mb-0">Real feedback from customers who turned their ideas into custom clothing.
+                </p>
+            </div>
+                                                    <div class="vx-review-marquee" data-aos="fade-up" data-aos-delay="80">
+                        <div class="vx-review-track">
+                    <div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"The custom T-shirt came out exactly like the design I sent. Great quality and the print looks amazing. Highly recommended!"</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">A</span>
+                            <div>
+                                <div class="fw-semibold">Achraf</div>
+                                <small class="vx-muted">Ordered Custom T-Shirts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"They helped me bring my idea to life from scratch. The team designed everything and the final result was better than I expected."</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">M</span>
+                            <div>
+                                <div class="fw-semibold">Mehdi</div>
+                                <small class="vx-muted">Design &amp; Print</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"Ordered matching outfits for our event and everyone loved them. Fast, organized, and the customized prints were top quality."</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">S</span>
+                            <div>
+                                <div class="fw-semibold">Salim</div>
+                                <small class="vx-muted">Event Group Order</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"The oversized streetwear fit is perfect. Communication was smooth and the delivery was on time. Will order again."</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">Y</span>
+                            <div>
+                                <div class="fw-semibold">Yassine</div>
+                                <small class="vx-muted">Streetwear Order</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"Perfect quality for our club jerseys. They listened to every detail and the team looked great. Thank you VOLTEX!"</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">N</span>
+                            <div>
+                                <div class="fw-semibold">Nadia</div>
+                                <small class="vx-muted">Club Jerseys</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"Brought my own logo and they printed it beautifully on branded clothing. Clean, professional finish. Very satisfied."</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">K</span>
+                            <div>
+                                <div class="fw-semibold">Karim</div>
+                                <small class="vx-muted">Branded Clothing</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"The custom T-shirt came out exactly like the design I sent. Great quality and the print looks amazing. Highly recommended!"</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">A</span>
+                            <div>
+                                <div class="fw-semibold">Achraf</div>
+                                <small class="vx-muted">Ordered Custom T-Shirts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"They helped me bring my idea to life from scratch. The team designed everything and the final result was better than I expected."</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">M</span>
+                            <div>
+                                <div class="fw-semibold">Mehdi</div>
+                                <small class="vx-muted">Design &amp; Print</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"Ordered matching outfits for our event and everyone loved them. Fast, organized, and the customized prints were top quality."</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">S</span>
+                            <div>
+                                <div class="fw-semibold">Salim</div>
+                                <small class="vx-muted">Event Group Order</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"The oversized streetwear fit is perfect. Communication was smooth and the delivery was on time. Will order again."</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">Y</span>
+                            <div>
+                                <div class="fw-semibold">Yassine</div>
+                                <small class="vx-muted">Streetwear Order</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"Perfect quality for our club jerseys. They listened to every detail and the team looked great. Thank you VOLTEX!"</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">N</span>
+                            <div>
+                                <div class="fw-semibold">Nadia</div>
+                                <small class="vx-muted">Club Jerseys</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="vx-review-item">
+                    <div class="vx-review vx-card h-100 p-4 p-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                            </span>
+                            <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
+                        </div>
+                        <p class="vx-review-text mb-4">"Brought my own logo and they printed it beautifully on branded clothing. Clean, professional finish. Very satisfied."</p>
+                        <div class="d-flex align-items-center gap-3 mt-auto">
+                            <span class="vx-review-avatar">K</span>
+                            <div>
+                                <div class="fw-semibold">Karim</div>
+                                <small class="vx-muted">Branded Clothing</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+        </div>
+    </section>
+
+    <!-- ============ SOCIAL ============ -->
+    <section class="vx-section py-10 py-xl-12"
+        style="background: var(--vx-bg); border-top:1px solid var(--vx-border); border-bottom:1px solid var(--vx-border);">
+        <div class="container">
+            <div class="text-center mx-auto mb-9 mb-lg-10" style="max-width: 640px;" data-aos="fade-up">
+                <p class="vx-label mb-3">Follow VOLTEX</p>
+                <h2 class="display-6 fw-bold mb-4">Stay Connected</h2>
+                <p class="lead vx-muted mb-0">Follow us on social media for new designs, drops, and behind-the-scenes
+                    content.</p>
+            </div>
+            <div class="d-flex flex-wrap justify-content-center gap-4 gap-lg-5" data-aos="fade-up" data-aos-delay="100">
+                <a class="vx-social-bw" href="https://www.instagram.com/vol_tex7?igsi=eTMzZGZsZmRlaHln" target="_blank" rel="noopener" aria-label="VOLTEX on Instagram" title="Instagram">
+                    <i class="bi bi-instagram" aria-hidden="true"></i>
+                    <span>Instagram</span>
+                </a>
+                <a class="vx-social-bw" href="https://www.facebook.com/profile.php?id=61593866157599" target="_blank" rel="noopener" aria-label="VOLTEX on Facebook" title="Facebook">
+                    <i class="bi bi-facebook" aria-hidden="true"></i>
+                    <span>Facebook</span>
+                </a>
+                <a class="vx-social-bw" href="https://www.tiktok.com/@vol_tex7?_r=1&_t=ZS-99INaBV5c2O" target="_blank" rel="noopener" aria-label="VOLTEX on TikTok" title="TikTok">
+                    <i class="bi bi-tiktok" aria-hidden="true"></i>
+                    <span>TikTok</span>
+                </a>
+                <a class="vx-social-bw" href="https://wa.me/213558340669" target="_blank" rel="noopener" aria-label="VOLTEX on WhatsApp" title="WhatsApp">
+                    <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a class="vx-social-bw" href="https://t.me/aziz_benallou" target="_blank" rel="noopener" aria-label="VOLTEX on Telegram" title="Telegram">
+                    <i class="bi bi-telegram" aria-hidden="true"></i>
+                    <span>Telegram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="vx-section py-10 py-xl-12"
+        style="background: var(--vx-bg-soft); border-top:1px solid var(--vx-border);">
+        <div class="container">
+            <div class="row g-6 g-lg-10 align-items-center">
+                <div class="col-lg-5" data-aos="fade-up">
+                    <p class="vx-label mb-3">Contact</p>
+                    <h2 class="display-6 fw-bold mb-4">Let's Talk About Your Order.</h2>
+                    <p class="lead vx-muted mb-6">Tell us what you want to create — a single piece, a team order, or a
+                        full branded collection. We'll handle the rest.</p>
+                    <div class="d-flex flex-column gap-4">
+                        <div class="d-flex align-items-start gap-3">
+                            <span class="vx-feature-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></span>
+                            <div>
+                                <h4 class="fs-6 fw-bold mb-1">Our Address</h4>
+                                <p class="vx-muted mb-0 small">Sidi Ali Mellal, Tiaret, Algeria</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <span class="vx-feature-icon"><i class="bi bi-envelope" aria-hidden="true"></i></span>
+                            <div>
+                                <h4 class="fs-6 fw-bold mb-1">Email</h4>
+                                <p class="vx-muted mb-0 small">
+                                    <a href="mailto:voltex.tiaret@gmail.com" class="vx-contact-link">voltex.tiaret@gmail.com</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <span class="vx-feature-icon"><i class="bi bi-telephone" aria-hidden="true"></i></span>
+                            <div>
+                                <h4 class="fs-6 fw-bold mb-1">Phone &amp; WhatsApp</h4>
+                                <p class="vx-muted mb-0 small">
+                                    <a href="tel:0558340669" class="vx-contact-link">0558340669</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <span class="vx-feature-icon"><i class="bi bi-clock" aria-hidden="true"></i></span>
+                            <div>
+                                <h4 class="fs-6 fw-bold mb-1">Availability</h4>
+                                <p class="vx-muted mb-0 small">Open 24/24 hours &middot; 7/7 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-up" data-aos-delay="120">
+                    <div class="vx-panel p-5 p-lg-7">
+                        <h3 class="fs-4 fw-bold mb-4">Request a Quote</h3>
+                        <form class="vx-form" onsubmit="return false;">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="vxName">Full Name*</label>
+                                    <input type="text" class="form-control" id="vxName" placeholder="Your name"
+                                        aria-label="Full name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="vxEmail">Email*</label>
+                                    <input type="email" class="form-control" id="vxEmail" placeholder="you@email.com"
+                                        aria-label="Email">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="vxPhone">Phone</label>
+                                    <input type="tel" class="form-control" id="vxPhone"
+                                        placeholder="+country code and number" aria-label="Phone">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="vxType">Order Type*</label>
+                                    <select class="form-select" id="vxType" aria-label="Order type">
+                                        <option value="" selected>Select an option</option>
+                                        <option>Custom Clothing (Individual)</option>
+                                        <option>Team / Group Order</option>
+                                        <option>Business / Corporate Clothing</option>
+                                        <option>Event Clothing</option>
+                                        <option>Design &amp; Visual Identity</option>
+                                        <option>Printing &amp; Branding</option>
+                                        <option>Other / Not sure yet</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="vxMsg">Your Idea / Message*</label>
+                                    <textarea class="form-control" id="vxMsg" rows="4"
+                                        placeholder="Describe your idea, design, colors, sizes, quantity, or any details..."
+                                        aria-label="Message"></textarea>
+                                </div>
+                                <div class="col-12 d-flex flex-wrap align-items-center gap-3">
+                                    <button type="submit" class="btn btn-vx btn-lg px-5 py-3">Start Your Order</button>
+                                    <span class="vx-mono text-secondary small">We'll follow up with you shortly</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="vx-footer pt-12 pb-8">
+        <div class="container">
+            <div class="row g-6 g-md-8 pb-8 mb-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="vx-brand mb-4" href="#home" aria-label="VOLTEX home">
+                        <img src="./assets/img/white.png" alt="VOLTEX logo mark" class="vx-brand-mark" width="469"
+                            height="1008">
+                        <img src="./assets/img/name.png" alt="VOLTEX" class="vx-brand-name" width="1580" height="231">
+                    </a>
+                    <p class="vx-muted mb-6" style="max-width: 320px;">Custom clothing, printing, design, and branding —
+                        built around your ideas.</p>
+                    <div class="d-flex gap-2">
+                        <a class="vx-social" href="https://www.instagram.com/vol_tex7?igsi=eTMzZGZsZmRlaHln" target="_blank" rel="noopener" aria-label="VOLTEX on Instagram" title="Instagram">
+                            <i class="bi bi-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a class="vx-social" href="https://www.facebook.com/profile.php?id=61593866157599" target="_blank" rel="noopener" aria-label="VOLTEX on Facebook" title="Facebook">
+                            <i class="bi bi-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a class="vx-social" href="https://www.tiktok.com/@vol_tex7?_r=1&_t=ZS-99INaBV5c2O" target="_blank" rel="noopener" aria-label="VOLTEX on TikTok" title="TikTok">
+                            <i class="bi bi-tiktok" aria-hidden="true"></i>
+                        </a>
+                        <a class="vx-social" href="https://wa.me/213558340669" target="_blank" rel="noopener" aria-label="VOLTEX on WhatsApp" title="WhatsApp">
+                            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                        </a>
+                        <a class="vx-social" href="https://t.me/aziz_benallou" target="_blank" rel="noopener" aria-label="VOLTEX on Telegram" title="Telegram">
+                            <i class="bi bi-telegram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2 offset-lg-1">
+                    <p class="vx-foot-title">Navigate</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <p class="vx-foot-title">Services</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#services">Custom Clothing</a></li>
+                        <li><a href="#services">Team &amp; Group Orders</a></li>
+                        <li><a href="#services">Business Clothing</a></li>
+                        <li><a href="#services">Event Clothing</a></li>
+                        <li><a href="#services">Design &amp; Visual Identity</a></li>
+                        <li><a href="#services">Printing &amp; Branding</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <p class="vx-foot-title">Get Started</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#contact">Start an Order</a></li>
+                        <li><a href="#contact">Request a Quote</a></li>
+                        <li><a href="#contact">Group Orders</a></li>
+                        <li><a href="#about">Why VOLTEX</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-8 col-lg-4">
+                    <p class="vx-foot-title">Find Us</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2 vx-muted small mb-0">
+                        <li class="d-flex align-items-start gap-2">
+                            <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                            <span>Sidi Ali Mellal, Tiaret, Algeria</span>
+                        </li>
+                        <li class="d-flex align-items-start gap-2">
+                            <i class="bi bi-telephone" aria-hidden="true"></i>
+                            <a href="tel:0558340669" class="vx-contact-link">0558340669</a>
+                        </li>
+                        <li class="d-flex align-items-start gap-2">
+                            <i class="bi bi-envelope" aria-hidden="true"></i>
+                            <a href="mailto:voltex.tiaret@gmail.com" class="vx-contact-link">voltex.tiaret@gmail.com</a>
+                        </li>
+                        <li class="d-flex align-items-start gap-2">
+                            <i class="bi bi-clock" aria-hidden="true"></i>
+                            <span>Available 24/24 &middot; 7/7</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-5" style="border-top: 1px solid var(--vx-border);">
+                <div class="row align-items-center g-3">
+                    <div class="col-md-6">
+                        <p class="vx-muted small mb-0">&copy; 2026 VOLTEX. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="vx-mono text-secondary mb-0" style="font-size:.6rem; letter-spacing:.18em;">CUSTOM
+                            CLOTHING &middot; PRINTING &middot; DESIGN &middot; BRANDING</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle" type="button" aria-label="Back to top"
+        aria-hidden="true" title="Back to top">
+        <i class="bi bi-chevron-up fs-5" aria-hidden="true"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    once: true,
+                    duration: 700,
+                    easing: 'ease-in-out',
+                    disable: function () {
+                        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    }
+                });
+                window.addEventListener('load', function () { AOS.refresh(); });
+            }
+        });
+    </script>
+    <script>
+        (function () {
+            'use strict';
+            var btn = document.querySelector('.back-to-top');
+            if (!btn) return;
+            var showOn = 200;
+            var ticking = false;
+
+            function update(scrollY) {
+                if (scrollY > showOn) {
+                    if (!btn.classList.contains('back-to-top--visible')) {
+                        btn.classList.add('back-to-top--visible');
+                        btn.setAttribute('aria-hidden', 'false');
+                    }
+                } else {
+                    if (btn.classList.contains('back-to-top--visible')) {
+                        btn.classList.remove('back-to-top--visible');
+                        btn.setAttribute('aria-hidden', 'true');
+                    }
+                }
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function () {
+                        update(window.scrollY);
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            document.addEventListener('scroll', onScroll, { passive: true });
+
+            btn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                btn.blur();
+            });
+
+            btn.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    btn.click();
+                }
+            });
+
+            update(window.scrollY);
+
+            // Smooth scroll for in-page anchor links + close mobile menu
+            var navLinks = document.querySelectorAll('.navbar a[href^="#"], a[href^="#"]');
+            if (navLinks.length) {
+                var collapseEl = document.querySelector('.navbar-collapse');
+                navLinks.forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        var hash = this.getAttribute('href');
+                        if (!hash || hash === '#') return;
+                        var target = document.querySelector(hash);
+                        if (!target) return;
+                        e.preventDefault();
+                        var navbar = document.querySelector('.navbar');
+                        var offset = navbar ? navbar.offsetHeight : 0;
+                        var rect = target.getBoundingClientRect();
+                        var targetY = window.scrollY + rect.top - offset - 12;
+                        window.scrollTo({ top: targetY, behavior: 'smooth' });
+                        if (collapseEl && collapseEl.classList.contains('show')) {
+                            var bsCollapse = bootstrap.Collapse.getInstance(collapseEl) || new bootstrap.Collapse(collapseEl);
+                            bsCollapse.hide();
+                        }
+                        setTimeout(function () {
+                            try {
+                                target.setAttribute('tabindex', '-1');
+                                target.focus({ preventScroll: true });
+                            } catch (err) { /* noop */ }
+                        }, 450);
+                    });
+                });
+            }
+        // Lightbox for clickable product images
+            var lbTriggers = document.querySelectorAll('.vx-lb-trigger');
+            if (lbTriggers.length) {
+                var lbOverlay = document.createElement('div');
+                lbOverlay.className = 'vx-lightbox';
+                lbOverlay.setAttribute('role', 'dialog');
+                lbOverlay.setAttribute('aria-modal', 'true');
+                lbOverlay.innerHTML =
+                    '<button type="button" class="vx-lb-close" aria-label="Close">&times;</button><img alt="">';
+                document.body.appendChild(lbOverlay);
+                var lbImg = lbOverlay.querySelector('img');
+                var lbClose = lbOverlay.querySelector('.vx-lb-close');
+
+                function lbOpen(src, alt) {
+                    lbImg.src = src;
+                    lbImg.alt = alt || '';
+                    lbOverlay.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+                function lbCloseAll() {
+                    lbOverlay.classList.remove('show');
+                    lbImg.src = '';
+                    document.body.style.overflow = '';
+                }
+                lbTriggers.forEach(function (btn) {
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        lbOpen(btn.getAttribute('data-src'), btn.getAttribute('data-alt'));
+                    });
+                });
+                lbClose.addEventListener('click', lbCloseAll);
+                lbOverlay.addEventListener('click', function (e) {
+                    if (e.target === lbOverlay) lbCloseAll();
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && lbOverlay.classList.contains('show')) lbCloseAll();
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

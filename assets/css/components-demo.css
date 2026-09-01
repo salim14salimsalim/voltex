@@ -1,0 +1,432 @@
+/* Demo chrome styles (prefixed with .demo- when needed) */
+:root{--demo-accent:#4f46e5}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+.demo-card{padding:1rem; border-radius:.375rem}
+
+#demo-sidebar{
+  display: flex;
+  flex-direction: column;
+  border-right:1px solid #e9ecef;
+  padding:0;
+}
+
+#demo-sidebar .demo-sidebar-inner{
+  display:flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 100%;
+  padding:1rem;
+  box-sizing:border-box;
+  overflow-y: auto;
+}
+
+/* Demo spacing utilities (scoped) */
+.demo-section{margin-top:.75rem;margin-bottom:1.75rem}
+.demo-section--tight{margin-bottom:1rem}
+.demo-section--spacious{margin-bottom:2.5rem}
+.demo-row-gap{row-gap:1.25rem}
+.demo-heading{margin-top:0;margin-bottom:.5rem}
+
+/* Title & TOC tuning removed in favor of standard Bootstrap utilities (mb-*, d-flex, gap-*) */
+
+/* Utility for demo-only hidden state that overrides Bootstrap display utilities */
+.demo-hidden{display:none !important}
+
+/* Site background (darker gradient) */
+body.demo-site-bg {
+	background: linear-gradient(180deg, #881d69 0%, #c84061 50%, #f17754 100%);
+	background-attachment: fixed;
+}
+
+/* Container polish so it stands out on the darker background (demo-scoped) */
+.demo-container.my-5 {
+	border: 1px solid rgba(2,6,23,0.08);
+	box-shadow: 0 20px 60px #02061773;
+	position: relative; /* ensure absolute children (floating hamburger) are positioned inside the container */
+}
+
+/* Make the demo container fill the viewport and provide independent scroll areas
+   - The demo-specific .demo-container-fluid is used in the demo page; give it full viewport height.
+   - Make the row fill the container so the columns can stretch to full height.
+   - Keep the sidebar's inner wrapper scrolling and give the main root its own scroll. */
+.demo-container-fluid.my-5 {
+    height: calc(100vh - 40px); /* full viewport height */
+}
+.demo-container-fluid.my-5 > .row {
+    height: 100%;
+}
+
+/* Sidebar: ensure it fills the available height and keep the inner element as the scrollable area */
+#demo-sidebar {
+    height: 100%;
+    overflow: hidden; /* hide outer scroll; inner .demo-sidebar-inner handles vertical scrolling */
+}
+#demo-sidebar .demo-sidebar-inner{
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box; /* include padding in height calculations */
+}
+
+/* Main demo root: own scroll, include padding in height so internal padding doesn't cause overflow */
+#demo-root{
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+/* Sidebar nav active state: soft background and icon color (demo-scoped) */
+.demo-nav .nav-link{
+	padding-left: .5rem;
+	padding-right: .5rem;
+	padding-top: .6rem;
+	padding-bottom: .6rem;
+	margin-bottom: .35rem; /* spacing between links */
+}
+
+.demo-nav .nav-link.active {
+	border-radius: .75rem;
+	/* padding matches the normal state to avoid shift */
+	padding-left: .5rem;
+	padding-right: .5rem;
+	padding-top: .6rem;
+	padding-bottom: .6rem;
+	/* use per-link vars if present, fallback to subtle primary */
+	background-color: var(--icon-bg, rgba(13,110,253,0.08));
+	color: var(--icon-color, var(--bs-primary)) !important;
+}
+.demo-nav .nav-link.active i {
+	color: var(--icon-color, var(--bs-primary)) !important;
+}
+
+.demo-nav .nav-link i{ transition: color .18s ease, transform .18s ease; color: var(--icon-color, currentColor); }
+/* Normalize sidebar/nav icons so text lines up even when icons differ or are missing */
+.demo-nav .nav-link{
+	display: flex;
+	align-items: center;
+	gap: .5rem; /* space between icon and label */
+}
+.demo-nav .nav-link > i,
+.demo-nav .nav-link > .nav-icon-placeholder{
+	flex: 0 0 1.5rem; /* reserve a fixed column for icons */
+	width: 1.5rem;
+	height: 1.5rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.demo-nav .nav-link > i{ font-size: 1rem; }
+.demo-nav .nav-link .me-2{ margin-right: 0 !important; }
+.demo-sidebar-brand .nav-icon-placeholder{ margin-right: .5rem; }
+/* Demo-scoped nav styles (do not override base .nav rules) */
+.demo-nav .nav-link{
+	padding-left: .5rem;
+	padding-right: .5rem;
+	padding-top: .6rem;
+	padding-bottom: .6rem;
+	margin-bottom: .35rem; /* spacing between links */
+	display: flex;
+	align-items: center;
+	gap: .5rem; /* space between icon and label */
+	font-weight: 400;
+}
+.demo-nav .nav-link.active {
+	border-radius: .75rem;
+	/* padding matches the normal state to avoid shift */
+	padding-left: .5rem;
+	padding-right: .5rem;
+	padding-top: .6rem;
+	padding-bottom: .6rem;
+	/* use per-link vars if present, fallback to subtle primary */
+	background-color: var(--icon-bg, rgba(13,110,253,0.08));
+	color: var(--icon-color, var(--bs-primary)) !important;
+}
+.demo-nav .nav-link.active i {
+	color: var(--icon-color, var(--bs-primary)) !important;
+}
+
+.demo-nav .nav-link:hover{
+	/* Prefer color-mix when available to slightly blend; fallback to the var directly */
+	background-color: color-mix(in srgb, var(--icon-bg, rgba(13,110,253,0.08)) 60%, transparent);
+	/* make hover background rounded same as active */
+	border-radius: .75rem;
+}
+.demo-nav .nav-link:hover i{
+	transform: translateY(-2px) scale(1.05);
+}
+
+.demo-nav .nav-link i{ transition: color .18s ease, transform .18s ease; color: var(--icon-color, currentColor); }
+/* Normalize sidebar/nav icons so text lines up even when icons differ or are missing */
+.demo-nav .nav-link{
+	display: flex;
+	align-items: center;
+	gap: .8rem; /* space between icon and label */
+	font-size: 0.925rem;
+}
+.demo-nav .nav-link > i,
+.demo-nav .nav-link > .nav-icon-placeholder{
+	flex: 0 0 1.5rem; /* reserve a fixed column for icons */
+	width: 1.5rem;
+	height: 1.5rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.demo-nav .nav-link > i{ font-size: 1rem; }
+.demo-nav .nav-link .me-2{ margin-right: 0 !important; }
+/* set per-link variables for color and soft-bg used when active (demo-scoped) */
+.demo-nav .nav-link[data-fragment="components/01-accordion.html"]{ --icon-color: var(--demo-accent); --icon-bg: rgba(79,70,229,0.08); }
+.demo-nav .nav-link[data-fragment="components/02-alerts.html"]{ --icon-color: #d97706; --icon-bg: rgba(217,119,6,0.08); }
+.demo-nav .nav-link[data-fragment="components/03-badge.html"]{ --icon-color: #0ea5a5; --icon-bg: rgba(14,165,165,0.08); }
+.demo-nav .nav-link[data-fragment="components/04-breadcrumb.html"]{ --icon-color: #2563eb; --icon-bg: rgba(37,99,235,0.08); }
+.demo-nav .nav-link[data-fragment="components/05-buttons.html"]{ --icon-color: #16a34a; --icon-bg: rgba(22,163,74,0.08); }
+.demo-nav .nav-link[data-fragment="components/06-button-group.html"]{ --icon-color: #7c3aed; --icon-bg: rgba(124,58,237,0.08); }
+.demo-nav .nav-link[data-fragment="components/07-card.html"]{ --icon-color: var(--demo-accent); --icon-bg: rgba(79,70,229,0.08); }
+.demo-nav .nav-link[data-fragment="components/08-carousel.html"]{ --icon-color: var(--demo-accent); --icon-bg: rgba(79,70,229,0.08); }
+.demo-nav .nav-link[data-fragment="components/09-close.html"]{ --icon-color: #ef4444; --icon-bg: rgba(239,68,68,0.08); }
+.demo-nav .nav-link[data-fragment="components/10-collapse.html"]{ --icon-color: #0ea5a5; --icon-bg: rgba(14,165,165,0.08); }
+.demo-nav .nav-link[data-fragment="components/11-dropdowns.html"]{ --icon-color: var(--demo-accent); --icon-bg: rgba(79,70,229,0.08); }
+.demo-nav .nav-link[data-fragment="components/12-list-group.html"]{ --icon-color: #06b6d4; --icon-bg: rgba(6,182,212,0.08); }
+.demo-nav .nav-link[data-fragment="components/13-modal.html"]{ --icon-color: #1d4ed8; --icon-bg: rgba(29,78,216,0.08); }
+.demo-nav .nav-link[data-fragment="components/14-navs-tabs.html"]{ --icon-color: var(--demo-accent); --icon-bg: rgba(79,70,229,0.08); }
+.demo-nav .nav-link[data-fragment="components/15-navbar.html"]{ --icon-color: var(--demo-accent); --icon-bg: rgba(79,70,229,0.08); }
+.demo-nav .nav-link[data-fragment="components/16-offcanvas.html"]{ --icon-color: #0ea5a5; --icon-bg: rgba(14,165,165,0.08); }
+.demo-nav .nav-link[data-fragment="components/17-pagination.html"]{ --icon-color: #0ea5a5; --icon-bg: rgba(14,165,165,0.08); }
+.demo-nav .nav-link[data-fragment="components/18-placeholders.html"]{ --icon-color: var(--demo-accent); --icon-bg: rgba(79,70,229,0.08); }
+.demo-nav .nav-link[data-fragment="components/19-popovers.html"]{ --icon-color: #7c3aed; --icon-bg: rgba(124,58,237,0.08); }
+.demo-nav .nav-link[data-fragment="components/20-progress.html"]{ --icon-color: #059669; --icon-bg: rgba(5,150,105,0.08); }
+.demo-nav .nav-link[data-fragment="components/21-scrollspy.html"]{ --icon-color: #0ea5a5; --icon-bg: rgba(14,165,165,0.08); }
+.demo-nav .nav-link[data-fragment="components/22-spinners.html"]{ --icon-color: #2563eb; --icon-bg: rgba(37,99,235,0.08); }
+.demo-nav .nav-link[data-fragment="components/23-toasts.html"]{ --icon-color: #f59e0b; --icon-bg: rgba(245,158,11,0.08); }
+.demo-nav .nav-link[data-fragment="components/24-tooltips.html"]{ --icon-color: #06b6d4; --icon-bg: rgba(6,182,212,0.08); }
+.demo-nav .nav-link[data-fragment="components/25-tables.html"]{ --icon-color: var(--demo-accent); --icon-bg: rgba(79,70,229,0.08); }
+.demo-nav .nav-link[data-fragment="components/26-forms.html"]{ --icon-color: #0ea5a5; --icon-bg: rgba(14,165,165,0.08); }
+.demo-nav .nav-link[data-fragment="components/27-icons.html"]{ --icon-color: #f59e0b; --icon-bg: rgba(245,158,11,0.08); }
+.demo-nav .nav-link[data-fragment="components/28-backgrounds.html"]{ --icon-color: #06b6d4; --icon-bg: rgba(6,182,212,0.08); }
+
+/* Hover effect: subtle tinted background using per-link --icon-bg and a small icon lift (demo-scoped) */
+.demo-nav .nav-link:hover{
+	/* Prefer color-mix when available to slightly blend; fallback to the var directly */
+	background-color: color-mix(in srgb, var(--icon-bg, rgba(13,110,253,0.08)) 60%, transparent);
+	/* make hover background rounded same as active */
+	border-radius: .75rem;
+}
+.demo-nav .nav-link:hover i{
+	transform: translateY(-2px) scale(1.05);
+}
+
+/* Visual feedback for clicks (short-lived) */
+.demo-nav .nav-link.clicked{
+	transform: translateY(1px);
+	filter: brightness(0.96);
+}
+.demo-nav .nav-link.clicked i{
+	transform: translateY(0) scale(0.98);
+}
+
+
+.demo-sidebar-brand{
+ 	position:relative; /* sits above the scrollable list */
+ 	z-index:10;
+ 	backdrop-filter: blur(6px);
+ 	-webkit-backdrop-filter: blur(6px);
+ 	padding: .6rem 0; /* padding inside the inner container */
+ 	margin: 0 0 .5rem 0; /* no negative margins now that inner has padding */
+ 	border-bottom: 1px solid rgba(2,6,23,0.06);
+}
+
+/* The nav list itself should scroll; keeps brand fixed visually */
+.demo-sidebar-list{
+	overflow:auto;
+	/* Pull the scrollbar to the outer edge so it's not inset by the sidebar padding. */
+	margin-right: -1rem; /* same value as .sidebar-inner padding */
+	padding-right: 1rem; /* preserve spacing so content doesn't sit under the scrollbar */
+	box-sizing: content-box; /* keep padding outside content box so scroll works as expected */
+}
+
+/* Floating hamburger for mobile (fixed to viewport top-right, compact) */
+#demo-hamburger-floating{
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	left: auto;
+	z-index: 1080; /* above most content but below modals if needed */
+	border-radius: .375rem;
+	box-shadow: 0 6px 18px rgba(2,6,23,0.16);
+	background-clip: padding-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto !important;
+	min-width: 0;
+	padding: .25rem .5rem;
+}
+
+/* Ensure the floating hamburger can be forcibly hidden on specific pages
+   (e.g. the showcase/index). The ID rule above previously used !important
+   and could be hard to override; these selectors are more specific so
+   hiding via the demo-hidden class or the hidden attribute wins. */
+#demo-hamburger-floating.demo-hidden,
+#demo-hamburger-floating[hidden],
+#demo-hamburger-floating[aria-hidden="true"]{
+    display: none !important;
+}
+
+@media (min-width: 768px){
+	#demo-hamburger-floating{ display: none !important; }
+}
+
+/* Dark mode overrides (use Bootstrap theme vars where possible) */
+[data-bs-theme="dark"] {
+	/* Topbar, sidebar, and main surfaces should follow the body background */
+	#demo-topbar{ background: var(--bs-body-bg); border-bottom-color: rgba(255,255,255,0.06); color: var(--bs-body-color); }
+	#demo-sidebar{ background: var(--bs-body-bg); border-right-color: rgba(255,255,255,0.06); }
+
+	/* Container surface: slightly lighter/darker border and shadow in dark mode (demo-scoped) */
+	.demo-container.my-5{
+		border-color: rgba(255,255,255,0.06);
+		box-shadow: 0 20px 60px rgba(2,6,23,0.6);
+		background-color: color-mix(in srgb, var(--bs-body-bg) 90%, transparent);
+	}
+
+	/* Cards and demo surfaces */
+	.demo-card{ background-color: color-mix(in srgb, var(--bs-body-bg) 88%, transparent); border-color: rgba(255,255,255,0.04); }
+
+	/* Sidebar brand surface should also tone down for dark */
+	.demo-sidebar-brand{ background: rgba(var(--bs-body-bg-rgb), 0.92); border-bottom-color: rgba(255,255,255,0.06); }
+
+	/* Nav link colors — keep per-link accent but ensure readable text */
+	.demo-nav .nav-link{ color: var(--bs-body-color); }
+	.demo-nav .nav-link.active{ color: var(--icon-color, var(--bs-primary)) !important; }
+
+	/* Floating hamburger: ensure contrast */
+	#demo-hamburger-floating{ box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+}
+
+/* icon square helpers */
+.demo-icon-wrap {
+  width: 3rem;               /* square area for icon, adjust if needed */
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0.5rem;           /* keep internal spacing if desired */
+}
+
+/* Demo placeholder sizing: larger title and taller card blocks for better visual balance */
+.demo-placeholder-title{ display:inline-block; height:36px; border-radius: .375rem; }
+.demo-placeholder-card{ display:block; height:160px; border-radius:.375rem; }
+@media(min-width:768px){ .demo-placeholder-card{ height:180px; } }
+
+/* Thin top progress bar used during fragment loads */
+#demo-progress{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  z-index: 1080;
+  overflow: hidden;
+  pointer-events: none;
+}
+#demo-progress .demo-progress-bar{
+  display: block;
+  height:100%;
+  width:0%;
+  /* slightly stronger, still soft gradient for better visibility */
+  background: linear-gradient(90deg, rgba(99,102,241,0.44), rgba(59,130,246,0.36));
+  /* remove strong glow to keep UI light */
+  box-shadow: none;
+  transition: width 0.25s ease;
+}
+#demo-progress.demo-progress-hidden{ opacity: 0; transition: opacity 0.25s linear; }
+
+/* Per-link bottom progress indicator */
+.demo-nav .nav-link { position: relative; }
+.demo-link-progress{
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 3px;
+  /* slightly stronger, still soft gradient */
+  background: linear-gradient(90deg, rgba(99,102,241,0.36), rgba(59,130,246,0.30));
+  width: 0%;
+  box-shadow: none;
+  transition: width 0.25s ease;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.98;
+}
+/* remove padding-based spacing to avoid layout shift — bar is absolutely positioned instead */
+.demo-nav .nav-link.demo-link-has-progress{ /* no-op: maintained for compatibility */ }
+
+
+/* force icons to a consistent square size and keep current color */
+.demo-icon-wrap .bi,
+.demo-icon-wrap svg {
+  /* width: 1.25rem; */
+  /* height: 1.25rem; */
+  display: inline-block;
+  line-height: 1; 
+}
+
+/* Demo code block tweaks: make pre/code more readable and provide a consistent background */
+#demo-content pre{ 
+  background: var(--bs-body-bg); 
+  padding: .85rem 1rem; 
+  border-radius: .375rem; 
+  overflow: auto; 
+  border: 1px solid rgba(0,0,0,0.05); 
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Segoe UI Mono', monospace; 
+  font-size: .92rem; 
+}
+[data-bs-theme="dark"] #demo-content pre{ 
+  background: color-mix(in srgb, var(--bs-body-bg) 88%, transparent);
+  border-color: rgba(255,255,255,0.04);
+  color: var(--bs-body-color);
+}
+
+/* Pill-style tab toggle used for Preview / HTML tabs (matches attached UI) */
+.demo-tabs-pill{
+  display:inline-flex;
+  gap:.35rem;
+  background: color-mix(in srgb, var(--bs-body-bg) 92%, rgba(79,70,229,0.06));
+  padding:.25rem;
+  border-radius:999px;
+  align-items:center;
+}
+.demo-tabs-pill .nav-link{
+  border-radius:999px;
+  padding:.45rem .9rem;
+  color: var(--bs-body-color);
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  font-weight:500;
+}
+/* Ensure Bootstrap's `small` class reduces font-size inside the pill tabs to 14px */
+.demo-tabs-pill .nav-link.small{
+  font-size: .875rem; /* 14px */
+  padding: .35rem .7rem; /* slightly tighter for smaller text */
+  line-height: 1.2;
+}
+.demo-tabs-pill .nav-link:hover{ opacity:.95; }
+.demo-tabs-pill .nav-link.active{
+  background: var(--bs-body-bg);
+  color: var(--demo-accent) !important;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.12);
+}
+/* Dark mode adjustments */
+[data-bs-theme="dark"] .demo-tabs-pill{
+  background: rgba(255,255,255,0.03);
+}
+[data-bs-theme="dark"] .demo-tabs-pill .nav-link.active{
+  background: color-mix(in srgb, var(--bs-body-bg) 96%, white 4%);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  color: var(--demo-accent) !important;
+}
