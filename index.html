@@ -302,6 +302,138 @@
             display: block;
         }
 
+        /* ---------- Hero duo (slideshow) ---------- */
+        .vx-hero-duo {
+            position: relative;
+            min-height: 560px;
+        }
+        .vx-hero-duo-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 62%;
+            aspect-ratio: 2 / 3;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .16);
+            box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .95);
+            background: #111114;
+        }
+        .vx-hero-duo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .vx-hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .vx-hero-slide.active {
+            opacity: 1;
+        }
+        .vx-hero-duo-shadow {
+            position: absolute;
+            top: 6%;
+            left: 6%;
+            right: 6%;
+            bottom: 6%;
+            background: radial-gradient(closest-side at 70% 30%, rgba(255, 255, 255, .14), transparent 70%);
+            filter: blur(12px);
+            z-index: 0;
+        }
+        .vx-hero-dots {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 8px;
+        }
+        .vx-hero-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .5);
+            cursor: pointer;
+            transition: background .3s ease, width .3s ease;
+        }
+        .vx-hero-dot.active {
+            background: #ffffff;
+            width: 22px;
+        }
+        .vx-hero-badge {
+            position: absolute;
+            z-index: 3;
+            left: 4%;
+            bottom: 12%;
+            display: inline-flex;
+            align-items: baseline;
+            gap: .55rem;
+            padding: .65rem 1.05rem;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 24px 50px -12px rgba(0, 0, 0, .85);
+            transform: rotate(-3deg);
+        }
+        .vx-hero-badge-num {
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: -.01em;
+        }
+        .vx-hero-badge-txt {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .02em;
+            text-transform: uppercase;
+            opacity: .8;
+        }
+        @media (min-width: 1200px) {
+            .vx-hero-duo {
+                min-height: 620px;
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .vx-hero-duo {
+                min-height: 500px;
+            }
+            .vx-hero-duo-frame {
+                width: 60%;
+            }
+        }
+        @media (max-width: 991.98px) {
+            .vx-hero-duo {
+                min-height: 500px;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 575.98px) {
+            .vx-hero-duo {
+                min-height: 400px;
+                max-width: 380px;
+            }
+            .vx-hero-duo-frame {
+                width: 72%;
+            }
+            .vx-hero-badge {
+                bottom: 8%;
+                padding: .5rem .85rem;
+            }
+            .vx-hero-badge-num {
+                font-size: .95rem;
+            }
+            .vx-hero-badge-txt {
+                font-size: .64rem;
+            }
+        }
+
         .vx-hero-title {
             font-weight: 800;
             font-size: clamp(2.35rem, 5.2vw, 4rem);
@@ -1248,8 +1380,22 @@
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="vx-hero-photo">
-                        <img src="./assets/img/salim back.png" alt="VOLTEX custom clothing showcase">
+                    <div class="vx-hero-duo">
+                        <div class="vx-hero-duo-frame vx-hero-slideshow">
+                            <img src="./assets/img/vol/voltex1.png" class="vx-hero-slide active"
+                                alt="VOLTEX custom clothing showcase 1">
+                            <img src="./assets/img/vol/voltex-2.png" class="vx-hero-slide"
+                                alt="VOLTEX custom clothing showcase 2">
+                            <div class="vx-hero-dots">
+                                <span class="vx-hero-dot active"></span>
+                                <span class="vx-hero-dot"></span>
+                            </div>
+                        </div>
+                        <div class="vx-hero-duo-shadow"></div>
+                        <div class="vx-hero-badge">
+                            <span class="vx-hero-badge-num">+1K</span>
+                            <span class="vx-hero-badge-txt">Happy Customers</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2146,6 +2292,49 @@
                 window.addEventListener('load', function () { AOS.refresh(); });
             }
         });
+    </script>
+    <script>
+        (function () {
+            'use strict';
+            var slideshow = document.querySelector('.vx-hero-slideshow');
+            if (!slideshow) return;
+            var slides = Array.prototype.slice.call(slideshow.querySelectorAll('.vx-hero-slide'));
+            var dots = Array.prototype.slice.call(slideshow.querySelectorAll('.vx-hero-dot'));
+            if (slides.length < 2) return;
+            var current = 0;
+            var timer = null;
+
+            function goTo(index) {
+                current = (index + slides.length) % slides.length;
+                slides.forEach(function (s, i) {
+                    s.classList.toggle('active', i === current);
+                });
+                dots.forEach(function (d, i) {
+                    d.classList.toggle('active', i === current);
+                });
+            }
+
+            function start() {
+                stop();
+                timer = setInterval(function () { goTo(current + 1); }, 4000);
+            }
+
+            function stop() {
+                if (timer) { clearInterval(timer); timer = null; }
+            }
+
+            dots.forEach(function (d, i) {
+                d.addEventListener('click', function () {
+                    goTo(i);
+                    start();
+                });
+            });
+
+            slideshow.addEventListener('mouseenter', stop);
+            slideshow.addEventListener('mouseleave', start);
+
+            start();
+        })();
     </script>
     <script>
         (function () {
