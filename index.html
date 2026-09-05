@@ -10,7 +10,7 @@
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ffffff'/%3E%3Cpath d='M9 9 L16 24 L23 9' stroke='%230a0a0c' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-theme.css">
@@ -677,9 +677,6 @@
             transform-origin: left;
             transition: transform .35s ease;
         }
-        html[dir="rtl"] .vx-cat-row::after {
-            transform-origin: right;
-        }
         .vx-cat-num {
             font-family: var(--vx-font-mono);
             font-size: .85rem;
@@ -715,10 +712,6 @@
             background: rgba(255, 255, 255, .05);
             padding-left: 1.1rem;
         }
-        html[dir="rtl"] .vx-cat-row:hover {
-            padding-left: .5rem;
-            padding-right: 1.1rem;
-        }
         .vx-cat-row:hover::after {
             transform: scaleX(1);
         }
@@ -730,9 +723,6 @@
             color: #000;
             opacity: 1;
             transform: rotate(45deg);
-        }
-        html[dir="rtl"] .vx-cat-row:hover .vx-cat-arrow {
-            transform: rotate(-135deg);
         }
         @media (min-width: 768px) {
             .vx-cat-row {
@@ -909,67 +899,6 @@
         }
 
         /* ---------- Language toggle ---------- */
-        .vx-lang-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            padding: .4rem .85rem;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, .5);
-            background: transparent;
-            color: #ffffff;
-            font-size: .8rem;
-            font-weight: 700;
-            letter-spacing: .06em;
-            cursor: pointer;
-            transition: background .25s ease, color .25s ease, border-color .25s ease;
-        }
-        .vx-lang-toggle:hover {
-            background: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
-        }
-        .vx-lang-toggle .vx-lang-icon {
-            font-size: .95rem;
-            line-height: 1;
-        }
-
-        /* ---------- Arabic (RTL) ---------- */
-        html[lang="ar"] body {
-            font-family: 'Cairo', 'Inter', system-ui, sans-serif;
-        }
-        html[lang="ar"] .vx-font-display,
-        html[lang="ar"] h1,
-        html[lang="ar"] h2,
-        html[lang="ar"] h3,
-        html[lang="ar"] h4,
-        html[lang="ar"] .display-5,
-        html[lang="ar"] .display-6 {
-            font-family: 'Cairo', 'Lexend', system-ui, sans-serif;
-            line-height: 1.5;
-        }
-        html[lang="ar"] .vx-mono,
-        html[lang="ar"] .vx-step-num {
-            font-family: 'Cairo', monospace;
-            letter-spacing: .02em;
-        }
-        html[lang="ar"] .vx-hero-title {
-            line-height: 1.3;
-        }
-        html[lang="ar"] .vx-label::before {
-            content: '';
-        }
-        html[lang="ar"] .form-control::placeholder,
-        html[lang="ar"] .form-select {
-            font-family: 'Cairo', 'Inter', system-ui, sans-serif;
-        }
-        html[dir="rtl"] .vx-review-track {
-            animation-name: vxMarqueeRtl;
-        }
-        html[dir="rtl"] .vx-lang-toggle .bi-translate {
-            transform: scaleX(-1);
-        }
-
         .vx-social-card {
             display: flex;
             flex-direction: column;
@@ -1062,10 +991,6 @@
         @keyframes vxMarquee {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
-        }
-        @keyframes vxMarqueeRtl {
-            from { transform: translateX(0); }
-            to { transform: translateX(50%); }
         }
         .vx-review-item {
             flex: 0 0 320px;
@@ -1289,14 +1214,9 @@
                         </div>
                     </li>
                 </ul>
-                <div class="ms-lg-3 mt-3 mt-lg-0 d-flex align-items-center gap-3">
-                    <button type="button" class="vx-lang-toggle" id="vxLangToggle" aria-label="Switch language"
-                        title="Language">
-                        <i class="bi bi-translate vx-lang-icon" aria-hidden="true"></i>
-                        <span id="vxLangLabel">AR</span>
-                    </button>
+<div class="ms-lg-3 mt-3 mt-lg-0 d-flex align-items-center gap-3">
                     <a href="https://voltex-6952.myshopify.com/" target="_blank" rel="noopener"
-                            class="btn btn-vx btn-lg px-5 py-3">Start Your Order</a>
+                        class="btn btn-vx btn-lg px-5 py-3">Start Your Order</a>
                 </div>
             </div>
         </div>
@@ -2345,269 +2265,6 @@
         })();
     </script>
 
-    <!-- ============ LANGUAGE TOGGLE (EN / AR) ============ -->
-    <script>
-        (function () {
-            var VX_DICT = {
-                'VOLTEX — Custom Clothing, Printing & Design': 'فولتكس — ملابس مخصصة، طباعة وتصميم',
-                'Home': 'الرئيسية',
-                'Services': 'خدماتنا',
-                'How It Works': 'كيف نعمل',
-                'About': 'من نحن',
-                'Contact': 'اتصل بنا',
-                'Start Your Order': 'ابدأ طلبك',
-                'Custom Clothing · Printing · Design · Branding': 'ملابس مخصصة · طباعة · تصميم · علامة تجارية',
-                'Custom Clothing.': 'ملابس مخصصة.',
-                'Your Ideas. Your Identity.': 'أفكارك. هويتك.',
-                'We turn your ideas into high-quality customized clothing, prints, and creative designs — made for individuals, teams, events, and businesses.': 'نحوّل أفكارك إلى ملابس مخصصة عالية الجودة ومطبوعات وتصاميم إبداعية — مصنوعة للأفراد والفرق والفعاليات والشركات.',
-                'Explore Our Services': 'استكشف خدماتنا',
-                'Made around your idea.': 'مصنوعة حول فكرتك.',
-                'Quality-focused production.': 'إنتاج يركز على الجودة.',
-                'Fast and organized delivery.': 'توصيل سريع ومنظم.',
-                'Individual and large orders.': 'طلبات فردية وجماعية.',
-                'Simple ordering experience.': 'تجربة طلب بسيطة.',
-                'What We Do': 'ماذا نقدم',
-                'From your first idea to the finished product, VOLTEX brings your vision to life.': 'من فكرتك الأولى إلى المنتج النهائي، فولتكس يجسّد رؤيتك.',
-                'Custom Clothing': 'ملابس مخصصة',
-                'Personalized clothing designed around your style, colors, size, and requirements.': 'ملابس شخصية مصممة وفق أسلوبك وألوانك ومقاساتك ومتطلباتك.',
-                'Team & Group Clothing': 'ملابس الفرق والمجموعات',
-                'Custom apparel for sports teams, groups, clubs, universities, and communities.': 'ملابس مخصصة للفرق الرياضية والمجموعات والأندية والجامعات والمجتمعات.',
-                'Business & Corporate Clothing': 'ملابس الأعمال والشركات',
-                'Professional customized clothing and branded apparel for companies and small businesses.': 'ملابس مخصصة احترافية وملابس تحمل العلامة للشركات والمشاريع الصغيرة.',
-                'Event Clothing': 'ملابس المناسبات',
-                'Custom clothing design and printing for events, celebrations, campaigns, and special occasions.': 'تصميم وطباعة ملابس مخصصة للمناسبات والاحتفالات والحملات والمناسبات الخاصة.',
-                'Design & Visual Identity': 'التصميم والهوية البصرية',
-                'Professional logo, visual identity, and print-ready design services.': 'خدمات تصميم احترافية للشعارات والهوية البصرية وتصاميم جاهزة للطباعة.',
-                'Printing & Branding': 'الطباعة والعلامة التجارية',
-                'Bring logos, artwork, and brand identities to life through clothing printing and branded products.': 'أبرز الشعارات والأعمال الفنية والهوية عبر طباعة الملابس والمنتجات ذات العلامة.',
-                'A simple process from idea to finished order.': 'عملية بسيطة من الفكرة إلى الطلب النهائي.',
-                'Share Your Idea': 'شارك فكرتك',
-                'Send us your idea, design, logo, reference, or inspiration.': 'أرسل لنا فكرتك أو تصميمك أو شعارك أو مرجعك أو مصدر إلهامك.',
-                'Design & Prepare': 'صمّم وجهّز',
-                'We transform your idea into a professional, print-ready design.': 'نحوّل فكرتك إلى تصميم احترافي جاهز للطباعة.',
-                'Customize': 'خصّص',
-                'Choose clothing, colors, sizes, and customization details.': 'اختر الملابس والألوان والمقاسات وتفاصيل التخصيص.',
-                'Quality Check': 'فحص الجودة',
-                'Your order is reviewed to ensure the expected quality.': 'تتم مراجعة طلبك لضمان الجودة المتوقعة.',
-                'Receive Your Order': 'استلم طلبك',
-                'Your finished order is ready for delivery or collection.': 'طلبك النهائي جاهز للتوصيل أو الاستلام.',
-                'For Individuals': 'للأفراد',
-                'Wear Something That\'s Yours.': 'ارتدِ ما هو لك.',
-                'Express your personality through clothing designed around your ideas, interests, style, and creativity.': 'عبّر عن شخصيتك بملابس مصممة حول أفكارك واهتماماتك وأسلوبك وإبداعك.',
-                'Personal style': 'أسلوب شخصي',
-                'Personalized gifts': 'هدايا مخصصة',
-                'Anime & manga-inspired designs': 'تصاميم مستوحاة من الأنمي والمانغا',
-                'Gaming & digital culture': 'الألعاب والثقافة الرقمية',
-                'Unique clothing ideas': 'أفكار ملابس فريدة',
-                'Special occasions': 'مناسبات خاصة',
-                'Customize Your Clothing': 'خصّص ملابسك',
-                'Products': 'المنتجات',
-                'Explore by Style': 'استكشف الأنماط',
-                'From anime and gaming to sports and streetwear — find the category that fits your vibe.': 'من الأنمي والألعاب إلى الرياضة والستريتوير — اختر الفئة التي تناسب ذوقك.',
-                'Anime & Manga': 'الأنمي والمانغا',
-                'Characters, quotes, and art inspired by your favorites.': 'شخصيات وعبارات وفنون مستوحاة من مفضلاتك.',
-                'Gaming': 'ألعاب الفيديو',
-                'Console, PC, and esports designs for every player.': 'تصاميم للأجهزة والحاسوب والرياضات الإلكترونية لكل لاعب.',
-                'Streetwear': 'ستريتوير',
-                'Oversized fits and bold prints with an urban feel.': 'قصّات واسعة ومطبوعات جريئة بإحساس عصري.',
-                'Music': 'الموسيقى',
-                'Band, tour, and artist-inspired apparel.': 'ملابس مستوحاة من الفرق والجولات والفنانين.',
-                'Sports': 'الرياضة',
-                'Team kits and matching apparel for your club.': 'أطقم فرق وملابس متناسقة لناديك.',
-                'Events': 'المناسبات',
-                'Weddings, birthdays, and special celebrations.': 'أعراس وأعياد ميلاد واحتفالات خاصة.',
-                'Personalized Gifts': 'هدايا مخصصة',
-                'Custom pieces made to surprise someone special.': 'قطع مخصصة تُسعد شخصًا مميزًا.',
-                'Business': 'الأعمال',
-                'Branded uniforms and corporate apparel.': 'زي رسمي يحمل العلامة وملابس للشركات.',
-                'Categories': 'الفئات',
-                'Customize Your Look': 'خصّص إطلالتك',
-                'Ready-made to be made yours — starting points for whatever you imagine.': 'جاهزة لتصبح ملكك — نقطة انطلاق لأي شيء تتخيله.',
-                'T-Shirts': 'تيشيرتات',
-                'Custom T-shirts designed around your idea.': 'تيشيرتات مخصصة مصممة حول فكرتك.',
-                'Custom Apparel': 'ملابس مخصصة',
-                'Personalized clothing made to your requirements.': 'ملابس شخصية مصنوعة وفق متطلباتك.',
-                'Branded Clothing': 'ملابس بعلامة تجارية',
-                'Professional apparel for businesses, teams, and organizations.': 'ملابس احترافية للشركات والفرق والمؤسسات.',
-                'Streetwear': 'ستريتوير',
-                'Oversized modern fits for a bold everyday look.': 'قصّات عصرية واسعة لإطلالة يومية جريئة.',
-                'About VOLTEX': 'عن فولتكس',
-                'Why VOLTEX?': 'لماذا فولتكس؟',
-                'A custom studio built around one simple idea: your imagination, made real.': 'استوديو مخصص مبني على فكرة بسيطة: خيالك يصبح واقعًا.',
-                'Made for You': 'مصنوع لأجلك',
-                'Customization built around your requirements.': 'تخصيص مبني حول متطلباتك.',
-                'Quality First': 'الجودة أولًا',
-                'Attention to quality across design, customization, printing, and preparation.': 'اهتمام بالجودة في التصميم والتخصيص والطباعة والتجهيز.',
-                'Fast & Flexible': 'سريع ومرن',
-                'From individual pieces to larger orders, we adapt to your needs.': 'من القطع الفردية إلى الطلبات الأكبر، نتكيف مع احتياجاتك.',
-                'Easy Ordering': 'طلب سهل',
-                'A straightforward experience from idea to finished product.': 'تجربة مباشرة ومبسطة من الفكرة إلى المنتج النهائي.',
-                'Professional Design': 'تصميم احترافي',
-                'Creative, print-ready designs that help your clothing or brand stand out.': 'تصاميم إبداعية جاهزة للطباعة تجعل ملابسك أو علامتك تبرز.',
-                'Attractive pricing': 'أسعار منافسة',
-                'Product variety': 'تنوع المنتجات',
-                'Transparent process': 'عملية شفافة',
-                'After-sales support': 'دعم ما بعد البيع',
-                'Quality & Customer Care': 'الجودة ورعاية العملاء',
-                'Reviews': 'آراء العملاء',
-                'What People Say About VOLTEX': 'ماذا يقولون عن فولتكس',
-                'Real feedback from customers who turned their ideas into custom clothing.': 'آراء حقيقية من عملاء حوّلوا أفكارهم إلى ملابس مخصصة.',
-                '"The custom T-shirt came out exactly like the design I sent. Great quality and the print looks amazing. Highly recommended!"': '"صار التيشيرت المخصص مطابقًا تمامًا للتصميم الذي أرسلته. جودة رائعة والطباعة مذهلة. أنصح به بشدة!"',
-                'Achraf': 'أشرف',
-                'Ordered Custom T-Shirts': 'طلب تيشيرتات مخصصة',
-                '"They helped me bring my idea to life from scratch. The team designed everything and the final result was better than I expected."': '"ساعدوني في تحويل فكرتي إلى واقع من الصفر. صمّم الفريق كل شيء وكانت النتيجة أفضل مما توقعت."',
-                'Mehdi': 'مهدي',
-                'Design & Print': 'تصميم وطباعة',
-                '"Ordered matching outfits for our event and everyone loved them. Fast, organized, and the customized prints were top quality."': '"طلبت أطقم متناسقة لحدثنا وأعجب بها الجميع. سرعة وتنظيم، والمطبوعات المخصصة كانت بأعلى جودة."',
-                'Salim': 'سليم',
-                'Event Group Order': 'طلب جماعي لحدث',
-                '"The oversized streetwear fit is perfect. Communication was smooth and the delivery was on time. Will order again."': '"قِصّة الستريتوير الواسعة مثالية. التواصل سلس والتسليم في الوقت المحدد. سأطلب مجددًا."',
-                'Yassine': 'ياسين',
-                'Streetwear Order': 'طلب ستريتوير',
-                '"Perfect quality for our club jerseys. They listened to every detail and the team looked great. Thank you VOLTEX!"': '"جودة مثالية لقمصان نادينا. استمعوا لكل تفصيلة وبدا الفريق رائعًا. شكرًا فولتكس!"',
-                'Nadia': 'نادية',
-                'Club Jerseys': 'قمصان النادي',
-                '"Brought my own logo and they printed it beautifully on branded clothing. Clean, professional finish. Very satisfied."': '"أحضرت شعارًا خاصّي وطبعوه بإتقان على ملابس ذات علامة. تشطيب نظيف واحترافي. راضٍ جدًا."',
-                'Karim': 'كريم',
-                'Follow VOLTEX': 'تابع فولتكس',
-                'Stay Connected': 'ابقَ على تواصل',
-                'Follow us on social media for new designs, drops, and behind-the-scenes content.': 'تابعنا على وسائل التواصل لتصاميم جديدة وإصدارات ولمحات من الكواليس.',
-                'Instagram': 'إنستغرام',
-                'Facebook': 'فيسبوك',
-                'TikTok': 'تيك توك',
-                'WhatsApp': 'واتساب',
-                'Telegram': 'تيليغرام',
-                'Let\'s Talk About Your Order.': 'لنتحدث عن طلبك.',
-                'Tell us what you want to create — a single piece, a team order, or a full branded collection. We\'ll handle the rest.': 'أخبرنا بما تريد صنعه — قطعة واحدة أو طلب فريق أو مجموعة كاملة بعلامة تجارية. سنتولى الباقي.',
-                'Our Address': 'عنواننا',
-                'Sidi Ali Mellal, Tiaret, Algeria': 'سيدي علي ملل، تيارت، الجزائر',
-                'Email': 'البريد الإلكتروني',
-                'Phone & WhatsApp': 'الهاتف وواتساب',
-                'Availability': 'أوقات العمل',
-                'Open 24/24 hours · 7/7 days': 'متاحون 24/24 ساعة · 7/7 أيام',
-                'Customer Service': 'خدمة العملاء',
-                'Full Name*': 'الاسم الكامل*',
-                'Email*': 'البريد الإلكتروني*',
-                'Phone': 'الهاتف',
-                'Your Idea / Message*': 'فكرتك / رسالتك*',
-                'We\'ll follow up with you shortly': 'سنتواصل معك قريبًا',
-                'Send Email': 'أرسل البريد',
-                'Custom clothing, printing, design, and branding — built around your ideas.': 'ملابس مخصصة، طباعة، تصميم، وعلامة تجارية — مبنية حول أفكارك.',
-                'Navigate': 'التنقل',
-                'Team & Group Orders': 'طلبات الفرق والمجموعات',
-                'Business Clothing': 'ملابس الأعمال',
-                'Get Started': 'ابدأ الآن',
-                'Start an Order': 'ابدأ طلبًا',
-                'Group Orders': 'طلبات جماعية',
-                'Why VOLTEX': 'لماذا فولتكس',
-                'Find Us': 'موقعنا',
-                'Available 24/24 · 7/7': 'متاحون 24/24 · 7/7',
-                '© 2026 VOLTEX. All rights reserved.': 'جميع الحقوق محفوظة © 2026 فولتكس.',
-                'CUSTOM CLOTHING · PRINTING · DESIGN · BRANDING': 'ملابس مخصصة · طباعة · تصميم · علامة تجارية'
-            };
-
-            var VX_STRIP = {
-                'CUSTOM': 'تخصيص',
-                'QUALITY': 'جودة',
-                'FAST': 'سرعة',
-                'FLEXIBLE': 'مرونة',
-                'EASY': 'سهولة'
-            };
-
-            var VX_PLACEHOLDERS = {
-                'Your name': 'اسمك',
-                '+country code and number': '+رمز الدولة والرقم',
-                'Describe your idea, design, colors, sizes, quantity, or any details...': 'صف فكرتك وتصميمك وألوانك ومقاساتك وكميتك أو أي تفاصيل...'
-            };
-
-            var VX_ATTRS = {
-                'Full name': 'الاسم الكامل',
-                'Phone': 'الهاتف',
-                'Order type': 'نوع الطلب',
-                'Message': 'الرسالة',
-                'Switch language': 'تغيير اللغة'
-            };
-
-            function normalize(s) {
-                return String(s).replace(/\s+/g, ' ').trim();
-            }
-
-            var textNodes = [];
-            var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-                acceptNode: function (n) {
-                    return n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-                }
-            });
-            while (walker.nextNode()) {
-                var tn = walker.currentNode;
-                textNodes.push({ node: tn, orig: tn.nodeValue });
-            }
-
-            var stripH3s = Array.prototype.slice.call(document.querySelectorAll('.vx-strip-item h3')).map(function (el) {
-                return { el: el, orig: el.innerHTML };
-            });
-
-            var phTargets = Array.prototype.slice.call(document.querySelectorAll('input, textarea')).map(function (el) {
-                return { el: el, orig: el.placeholder, aria: el.getAttribute('aria-label') };
-            });
-
-            var toggle = document.getElementById('vxLangToggle');
-            var toggleLabel = document.getElementById('vxLangLabel');
-
-            function setLang(which) {
-                var html = document.documentElement;
-                if (which === 'ar') {
-                    html.setAttribute('lang', 'ar');
-                    html.setAttribute('dir', 'rtl');
-                    document.title = 'فولتكس — ملابس مخصصة، طباعة وتصميم';
-                    textNodes.forEach(function (t) {
-                        var k = normalize(t.orig);
-                        if (VX_DICT[k]) t.node.nodeValue = VX_DICT[k];
-                    });
-                    stripH3s.forEach(function (s) {
-                        var k = normalize(s.el.textContent).toUpperCase();
-                        if (VX_STRIP[k]) s.el.innerHTML = VX_STRIP[k];
-                    });
-                    phTargets.forEach(function (p) {
-                        if (VX_PLACEHOLDERS[normalize(p.orig)]) p.el.placeholder = VX_PLACEHOLDERS[normalize(p.orig)];
-                        if (p.aria && VX_ATTRS[normalize(p.aria)]) p.el.setAttribute('aria-label', VX_ATTRS[normalize(p.aria)]);
-                    });
-                    toggleLabel.textContent = 'EN';
-                    toggle.setAttribute('aria-label', 'Switch to English');
-                } else {
-                    html.setAttribute('lang', 'en');
-                    html.setAttribute('dir', 'ltr');
-                    document.title = 'VOLTEX — Custom Clothing, Printing & Design';
-                    textNodes.forEach(function (t) {
-                        t.node.nodeValue = t.orig;
-                    });
-                    stripH3s.forEach(function (s) {
-                        s.el.innerHTML = s.orig;
-                    });
-                    phTargets.forEach(function (p) {
-                        p.el.placeholder = p.orig || '';
-                        if (p.aria) p.el.setAttribute('aria-label', p.aria);
-                    });
-                    toggleLabel.textContent = 'AR';
-                    toggle.setAttribute('aria-label', 'Switch language');
-                }
-                try {
-                    localStorage.setItem('vxLang', which);
-                } catch (e) {}
-            }
-
-            var saved = 'en';
-            try {
-                saved = localStorage.getItem('vxLang') || 'en';
-            } catch (e) {}
-            setLang(saved === 'ar' ? 'ar' : 'en');
-
-            toggle.addEventListener('click', function () {
-                var next = document.documentElement.getAttribute('lang') === 'ar' ? 'en' : 'ar';
-                setLang(next);
-            });
-        })();
-    </script>
 </body>
 
 </html>
