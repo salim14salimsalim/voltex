@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="ar" dir="rtl" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOLTEX — Custom Clothing, Printing &amp; Design</title>
+    <title>فولتكس — ملابس مخصصة، طباعة وتصميم</title>
     <meta name="description"
-        content="VOLTEX creates customized clothing, printing, professional designs, and branded apparel for individuals, teams, events, and businesses.">
+        content="فولتكس يصنع لك ملابس مخصصة، طباعة عالية الجودة، تصاميم احترافية، وملابس تحمل علامتك للأفراد والفرق والمناسبات والشركات.">
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ffffff'/%3E%3Cpath d='M9 9 L16 24 L23 9' stroke='%230a0a0c' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-theme.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -20,6 +17,30 @@
         /* ============================================================
            VOLTEX DESIGN SYSTEM — dark theme + white accent
            ============================================================ */
+        @font-face {
+            font-family: 'Cairo';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url('./assets/fonts/cairo-arabic.woff2') format('woff2');
+            unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+        }
+        @font-face {
+            font-family: 'Cairo';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url('./assets/fonts/cairo-latin.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Cairo';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url('./assets/fonts/cairo-latin-ext.woff2') format('woff2');
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
         :root {
             --vx-bg: #000000;
             --vx-bg-soft: #000000;
@@ -35,9 +56,9 @@
             --vx-purple-dark: #d4d4d8;
             --vx-grad: linear-gradient(135deg, #ffffff 0%, #f4f4f5 48%, #d9d9de 100%);
             --vx-grad-soft: linear-gradient(180deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .04));
-            --vx-font-display: 'Lexend', 'Inter', system-ui, sans-serif;
-            --vx-font-body: 'Inter', system-ui, sans-serif;
-            --vx-font-mono: 'Source Code Pro', ui-monospace, monospace;
+            --vx-font-display: 'Cairo', system-ui, sans-serif;
+            --vx-font-body: 'Cairo', system-ui, sans-serif;
+            --vx-font-mono: 'Cairo', ui-monospace, monospace;
             --vx-radius: 20px;
         }
 
@@ -1292,6 +1313,41 @@
         .vx-lb-close:hover {
             opacity: 1;
         }
+
+        /* ---------- RTL ---------- */
+        [dir="rtl"] .vx-strip-item {
+            border-left: none;
+            border-right: 1px solid var(--vx-border);
+        }
+        [dir="rtl"] .vx-strip-item:first-child {
+            border-right: none;
+        }
+        [dir="rtl"] .vx-cat-row:hover {
+            padding-left: 0;
+            padding-right: 1.1rem;
+        }
+        [dir="rtl"] .vx-cat-row:hover::after {
+            transform-origin: right;
+        }
+        [dir="rtl"] .vx-label,
+        [dir="rtl"] .vx-mono,
+        [dir="rtl"] .vx-step-num,
+        [dir="rtl"] .vx-foot-title,
+        [dir="rtl"] .vx-cat-num,
+        [dir="rtl"] .vx-hero-badge-txt {
+            letter-spacing: 0;
+            text-transform: none;
+        }
+        [dir="rtl"] .vx-timeline {
+            padding-right: 34px;
+        }
+        [dir="rtl"] .vx-timeline::before {
+            left: auto;
+            right: 22px;
+        }
+        [dir="rtl"] .vx-step-content {
+            text-align: right;
+        }
     </style>
 </head>
 
@@ -1300,31 +1356,31 @@
     <!-- ============ NAVBAR ============ -->
     <nav class="navbar navbar-expand-lg fixed-top vx-navbar">
         <div class="container">
-            <a class="navbar-brand vx-brand" href="#home" aria-label="VOLTEX home">
-                <img src="./assets/img/white.png" alt="VOLTEX logo mark" class="vx-brand-mark" width="469"
+            <a class="navbar-brand vx-brand" href="#home" aria-label="فولتكس الرئيسية">
+                <img src="./assets/img/white.png" alt="شعار فولتكس" class="vx-brand-mark" width="469"
                     height="1008">
                 <img src="./assets/img/name.png" alt="VOLTEX" class="vx-brand-name" width="1580" height="231">
             </a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#vxNav"
-                aria-controls="vxNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="vxNav" aria-expanded="false" aria-label="فتح قائمة التنقل">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="vxNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#home">الرئيسية</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="#services">الخدمات</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                        <a class="nav-link" href="#how-it-works">كيف نعمل</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#about">من نحن</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#social">Contact</a>
+                        <a class="nav-link" href="#social">اتصل بنا</a>
                     </li>
                     <li class="nav-item vx-nav-socials-li">
                         <div class="d-flex gap-2 mt-3 vx-nav-socials">
@@ -1348,7 +1404,7 @@
                 </ul>
 <div class="ms-lg-3 mt-3 mt-lg-0 d-flex align-items-center gap-3">
                     <a href="https://voltex-6952.myshopify.com/" target="_blank" rel="noopener"
-                        class="btn btn-vx btn-lg px-5 py-3">Start Your Order</a>
+                        class="btn btn-vx btn-lg px-5 py-3">ابدأ طلبك</a>
                 </div>
             </div>
         </div>
@@ -1362,30 +1418,29 @@
                     <p class="vx-label mb-4">
                         <span class="d-inline-block border rounded-pill px-3 py-2"
                             style="border-color: rgba(255,255,255,.4) !important;">
-                            Custom Clothing &middot; Printing &middot; Design &middot; Branding
+                            ملابس مخصصة &middot; طباعة &middot; تصميم &middot; علامة تجارية
                         </span>
                     </p>
                     <h1 class="vx-hero-title mb-4">
-                        Custom Clothing.<br>
-                        <span>Your Ideas. Your Identity.</span>
+                        ملابس مخصصة.<br>
+                        <span>أفكارك. هويتك.</span>
                     </h1>
                     <p class="lead mb-5" style="max-width: 520px; color: #ffffff;">
-                        We turn your ideas into high-quality customized clothing, prints, and creative designs —
-                        made for individuals, teams, events, and businesses.
+                        نحوّل أفكارك إلى ملابس مخصصة وطباعات وتصاميم إبداعية عالية الجودة — للأفراد والفرق والمناسبات والشركات.
                     </p>
                     <div class="d-flex flex-wrap gap-3">
 <a href="https://voltex-6952.myshopify.com/" target="_blank" rel="noopener"
-                        class="btn btn-vx btn-lg px-5 py-3">Start Your Order</a>
-                        <a href="#services" class="btn btn-vx-outline btn-lg px-5 py-3">Explore Our Services</a>
+                        class="btn btn-vx btn-lg px-5 py-3">ابدأ طلبك</a>
+                        <a href="#services" class="btn btn-vx-outline btn-lg px-5 py-3">استكشف خدماتنا</a>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="150">
                     <div class="vx-hero-duo">
                         <div class="vx-hero-duo-frame vx-hero-slideshow">
                             <img src="./assets/img/vol/voltex1.png" class="vx-hero-slide active"
-                                alt="VOLTEX custom clothing showcase 1">
+                                alt="عرض ملابس فولتكس المخصصة 1">
                             <img src="./assets/img/vol/voltex-2.png" class="vx-hero-slide"
-                                alt="VOLTEX custom clothing showcase 2">
+                                alt="عرض ملابس فولتكس المخصصة 2">
                             <div class="vx-hero-dots">
                                 <span class="vx-hero-dot active"></span>
                                 <span class="vx-hero-dot"></span>
@@ -1394,7 +1449,7 @@
                         <div class="vx-hero-duo-shadow"></div>
                         <div class="vx-hero-badge">
                             <span class="vx-hero-badge-num">+1K</span>
-                            <span class="vx-hero-badge-txt">Happy Customers</span>
+                            <span class="vx-hero-badge-txt">عميل سعيد</span>
                         </div>
                     </div>
                 </div>
@@ -1403,28 +1458,28 @@
     </section>
 
     <!-- ============ VALUE STRIP ============ -->
-    <section class="vx-strip" aria-label="Our core values">
+    <section class="vx-strip" aria-label="قيمنا الأساسية">
         <div class="container">
             <div class="row g-0">
                 <div class="col-6 col-lg vx-strip-item" data-aos="fade-up">
-                    <h3><span>C</span>USTOM</h3>
-                    <p>Made around your idea.</p>
+                    <h3><span>ت</span>خصيص</h3>
+                    <p>تمّت حياكته حول فكرتك.</p>
                 </div>
                 <div class="col-6 col-lg vx-strip-item" data-aos="fade-up" data-aos-delay="100">
-                    <h3><span>Q</span>UALITY</h3>
-                    <p>Quality-focused production.</p>
+                    <h3><span>ج</span>ودة</h3>
+                    <p>إنتاج يركز على الجودة.</p>
                 </div>
                 <div class="col-6 col-lg vx-strip-item" data-aos="fade-up" data-aos-delay="200">
-                    <h3><span>F</span>AST</h3>
-                    <p>Fast and organized delivery.</p>
+                    <h3><span>س</span>رعة</h3>
+                    <p>تسليم سريع ومنظم.</p>
                 </div>
                 <div class="col-6 col-lg vx-strip-item" data-aos="fade-up" data-aos-delay="300">
-                    <h3><span>F</span>LEXIBLE</h3>
-                    <p>Individual and large orders.</p>
+                    <h3><span>م</span>رونة</h3>
+                    <p>طلبات فردية وكبيرة.</p>
                 </div>
                 <div class="col-6 col-lg vx-strip-item" data-aos="fade-up" data-aos-delay="400">
-                    <h3><span>E</span>ASY</h3>
-                    <p>Simple ordering experience.</p>
+                    <h3><span>س</span>هولة</h3>
+                    <p>تجربة طلب سهلة.</p>
                 </div>
             </div>
         </div>
@@ -1434,58 +1489,52 @@
     <section id="services" class="vx-section py-10 py-xl-12">
         <div class="container">
             <div class="text-center mx-auto mb-10 mb-lg-11" style="max-width: 760px;" data-aos="fade-up">
-                <p class="vx-label mb-3">What We Do</p>
-                <h2 class="display-6 fw-bold mb-3">What We Do</h2>
-                <p class="lead vx-muted mb-0">From your first idea to the finished product, VOLTEX brings your vision to
-                    life.</p>
+                <p class="vx-label mb-3">ماذا نقدم</p>
+                <h2 class="display-6 fw-bold mb-3">ماذا نقدم</h2>
+                <p class="lead vx-muted mb-0">من فكرتك الأولى إلى المنتج النهائي، يحوّل فولتكس رؤيتك إلى واقع.</p>
             </div>
 
             <div class="row g-6 g-lg-8">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
                     <div class="vx-card p-5 p-lg-6">
                         <span class="vx-icon-tile mb-5"><i class="bi bi-person-arms-up" aria-hidden="true"></i></span>
-                        <h3 class="fs-5 fw-semibold">Custom Clothing</h3>
-                        <p class="vx-muted mb-0">Personalized clothing designed around your style, colors, size, and
-                            requirements.</p>
+                        <h3 class="fs-5 fw-semibold">ملابس مخصصة</h3>
+                        <p class="vx-muted mb-0">ملابس مخصصة تُصمّم حول أسلوبك وألوانك ومقاساتك واحتياجاتك.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
                     <div class="vx-card p-5 p-lg-6">
                         <span class="vx-icon-tile mb-5"><i class="bi bi-people" aria-hidden="true"></i></span>
-                        <h3 class="fs-5 fw-semibold">Team &amp; Group Clothing</h3>
-                        <p class="vx-muted mb-0">Custom apparel for sports teams, groups, clubs, universities, and
-                            communities.</p>
+                        <h3 class="fs-5 fw-semibold">ملابس الفرق والمجموعات</h3>
+                        <p class="vx-muted mb-0">ملابس مخصصة للفرق الرياضية والمجموعات والأندية والجامعات والمجتمعات.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
                     <div class="vx-card p-5 p-lg-6">
                         <span class="vx-icon-tile mb-5"><i class="bi bi-briefcase" aria-hidden="true"></i></span>
-                        <h3 class="fs-5 fw-semibold">Business &amp; Corporate Clothing</h3>
-                        <p class="vx-muted mb-0">Professional customized clothing and branded apparel for companies and
-                            small businesses.</p>
+                        <h3 class="fs-5 fw-semibold">ملابس العمل والشركات</h3>
+                        <p class="vx-muted mb-0">ملابس مخصصة احترافية وملابس بعلامتك التجارية للشركات والمشاريع الصغرى.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="240">
                     <div class="vx-card p-5 p-lg-6">
                         <span class="vx-icon-tile mb-5"><i class="bi bi-stars" aria-hidden="true"></i></span>
-                        <h3 class="fs-5 fw-semibold">Event Clothing</h3>
-                        <p class="vx-muted mb-0">Custom clothing design and printing for events, celebrations,
-                            campaigns, and special occasions.</p>
+                        <h3 class="fs-5 fw-semibold">ملابس المناسبات</h3>
+                        <p class="vx-muted mb-0">تصميم وطباعة ملابس مخصصة للمناسبات والاحتفالات والحملات والمناسبات الخاصة.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="320">
                     <div class="vx-card p-5 p-lg-6">
                         <span class="vx-icon-tile mb-5"><i class="bi bi-palette" aria-hidden="true"></i></span>
-                        <h3 class="fs-5 fw-semibold">Design &amp; Visual Identity</h3>
-                        <p class="vx-muted mb-0">Professional logo, visual identity, and print-ready design services.</p>
+                        <h3 class="fs-5 fw-semibold">التصميم والهوية البصرية</h3>
+                        <p class="vx-muted mb-0">خدمات شعار احترافي وهويات بصرية وتصاميم جاهزة للطباعة.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="vx-card p-5 p-lg-6">
                         <span class="vx-icon-tile mb-5"><i class="bi bi-printer" aria-hidden="true"></i></span>
-                        <h3 class="fs-5 fw-semibold">Printing &amp; Branding</h3>
-                        <p class="vx-muted mb-0">Bring logos, artwork, and brand identities to life through clothing
-                            printing and branded products.</p>
+                        <h3 class="fs-5 fw-semibold">الطباعة والعلامة التجارية</h3>
+                        <p class="vx-muted mb-0">أعد إحياء الشعارات والأعمال الفنية والهويات عبر طباعة الملابس والمنتجات المخصصة.</p>
                     </div>
                 </div>
             </div>
@@ -1496,45 +1545,45 @@
     <section id="how-it-works" class="vx-section py-10 py-xl-12">
         <div class="container">
             <div class="text-center mx-auto mb-10 mb-lg-11" style="max-width: 760px;" data-aos="fade-up">
-                <p class="vx-label mb-3">How It Works</p>
-                <h2 class="display-6 fw-bold mb-3">How It Works</h2>
-                <p class="lead vx-muted mb-0">A simple process from idea to finished order.</p>
+                <p class="vx-label mb-3">كيف نعمل</p>
+                <h2 class="display-6 fw-bold mb-3">كيف نعمل</h2>
+                <p class="lead vx-muted mb-0">عملية بسيطة من الفكرة إلى الطلب النهائي.</p>
             </div>
 
             <div class="vx-timeline" data-aos="fade-up" data-aos-delay="80">
                 <div class="vx-step">
                     <div class="vx-step-dot">01</div>
                     <div class="vx-step-content">
-                        <h3>Share Your Idea</h3>
-                        <p>Send us your idea, design, logo, reference, or inspiration.</p>
+                        <h3>شارك فكرتك</h3>
+                        <p>أرسل لنا فكرتك أو تصميمك أو شعارك أو مرجعك أو مصدر إلهامك.</p>
                     </div>
                 </div>
                 <div class="vx-step">
                     <div class="vx-step-dot">02</div>
                     <div class="vx-step-content">
-                        <h3>Design &amp; Prepare</h3>
-                        <p>We transform your idea into a professional, print-ready design.</p>
+                        <h3>صمّم وحضّر</h3>
+                        <p>نحوّل فكرتك إلى تصميم احترافي جاهز للطباعة.</p>
                     </div>
                 </div>
                 <div class="vx-step">
                     <div class="vx-step-dot">03</div>
                     <div class="vx-step-content">
-                        <h3>Customize</h3>
-                        <p>Choose clothing, colors, sizes, and customization details.</p>
+                        <h3>خصّص</h3>
+                        <p>اختر الملابس والألوان والمقاسات وتفاصيل التخصيص.</p>
                     </div>
                 </div>
                 <div class="vx-step">
                     <div class="vx-step-dot">04</div>
                     <div class="vx-step-content">
-                        <h3>Quality Check</h3>
-                        <p>Your order is reviewed to ensure the expected quality.</p>
+                        <h3>فحص الجودة</h3>
+                        <p>تُراجع طلباتك لضمان الجودة المتوقعة.</p>
                     </div>
                 </div>
                 <div class="vx-step">
                     <div class="vx-step-dot">05</div>
                     <div class="vx-step-content">
-                        <h3>Receive Your Order</h3>
-                        <p>Your finished order is ready for delivery or collection.</p>
+                        <h3>استلم طلبك</h3>
+                        <p>طلبك النهائي جاهز للتسليم أو الاستلام.</p>
                     </div>
                 </div>
             </div>
@@ -1547,24 +1596,23 @@
             <div class="row align-items-center g-6 g-lg-10">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="vx-hiw-img-wrap">
-                        <img src="./assets/img/3.png" alt="For Individuals - custom clothing" class="vx-hiw-img">
+                        <img src="./assets/img/3.png" alt="لأفراد — ملابس مخصصة" class="vx-hiw-img">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="120">
-                    <p class="vx-label mb-3">For Individuals</p>
-                    <h2 class="display-6 fw-bold mb-4">Wear Something That's Yours.</h2>
-                    <p class="lead vx-muted mb-5">Express your personality through clothing designed around your ideas,
-                        interests, style, and creativity.</p>
+                    <p class="vx-label mb-3">لأفراد</p>
+                    <h2 class="display-6 fw-bold mb-4">ارتدِ شيئاً يخصّك.</h2>
+                    <p class="lead vx-muted mb-5">عبّر عن شخصيتك بملابس مصممة حول أفكارك واهتماماتك وأسلوبك وإبداعك.</p>
                     <div class="d-flex flex-wrap gap-2 mb-6">
-                        <span class="vx-chip"><i class="bi bi-person"></i> Personal style</span>
-                        <span class="vx-chip"><i class="bi bi-gift"></i> Personalized gifts</span>
-                        <span class="vx-chip"><i class="bi bi-emoji-smile"></i> Anime &amp; manga-inspired designs</span>
-                        <span class="vx-chip"><i class="bi bi-controller"></i> Gaming &amp; digital culture</span>
-                        <span class="vx-chip"><i class="bi bi-lightbulb"></i> Unique clothing ideas</span>
-                        <span class="vx-chip"><i class="bi bi-calendar-heart"></i> Special occasions</span>
+                        <span class="vx-chip"><i class="bi bi-person"></i> أسلوب شخصي</span>
+                        <span class="vx-chip"><i class="bi bi-gift"></i> هدايا مخصصة</span>
+                        <span class="vx-chip"><i class="bi bi-emoji-smile"></i> تصاميم مستوحاة من الأنمي والمانغا</span>
+                        <span class="vx-chip"><i class="bi bi-controller"></i> ثقافة الألعاب والرقمنة</span>
+                        <span class="vx-chip"><i class="bi bi-lightbulb"></i> أفكار ملابس فريدة</span>
+                        <span class="vx-chip"><i class="bi bi-calendar-heart"></i> مناسبات خاصة</span>
                     </div>
                     <a href="https://voltex-6952.myshopify.com/" target="_blank" rel="noopener"
-                        class="btn btn-vx btn-lg px-5 py-3">Customize Your Clothing</a>
+                        class="btn btn-vx btn-lg px-5 py-3">خصّص ملابسك</a>
                 </div>
             </div>
         </div>
@@ -1575,22 +1623,22 @@
         style="background: var(--vx-bg-soft); border-top:1px solid var(--vx-border); border-bottom:1px solid var(--vx-border);">
         <div class="container">
             <div class="text-center mx-auto mb-10 mb-lg-11" style="max-width: 720px;" data-aos="fade-up">
-                <p class="vx-label mb-3">Products</p>
-                <h2 class="display-6 fw-bold mb-3">Customize Your Look</h2>
-                <p class="lead vx-muted mb-0">Ready-made to be made yours — starting points for whatever you imagine.</p>
+                <p class="vx-label mb-3">منتجاتنا</p>
+                <h2 class="display-6 fw-bold mb-3">خصّص إطلالتك</h2>
+                <p class="lead vx-muted mb-0">جاهزة لتكون لك — نقطة انطلاق لأي شيء تتخيله.</p>
             </div>
             <div class="row g-4 g-lg-5 justify-content-center">
                 <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
                     <div class="vx-card p-4 text-center h-100">
                         <button type="button" class="vx-lb-trigger mx-auto mb-4 overflow-hidden rounded-4 d-block"
                             style="width:100%; max-width: 240px; aspect-ratio: 1; border:1px solid rgba(255,255,255,.3); padding:0; background:none;"
-                            data-src="./assets/img/cust/Unisex T Shirt.jpeg" data-alt="T-Shirts"
-                            aria-label="View T-Shirts image">
-                            <img src="./assets/img/cust/Unisex T Shirt.jpeg" alt="T-Shirts"
+                            data-src="./assets/img/cust/Unisex T Shirt.jpeg" data-alt="تيشيرتات"
+                            aria-label="عرض صورة تيشيرتات">
+                            <img src="./assets/img/cust/Unisex T Shirt.jpeg" alt="تيشيرتات"
                                 style="width:100%; height:100%; object-fit: cover; display:block;">
                         </button>
-                        <h3 class="fs-6 fw-semibold mb-2">T-Shirts</h3>
-                        <p class="vx-muted small mb-0">Custom T-shirts designed around your idea.</p>
+                        <h3 class="fs-6 fw-semibold mb-2">تيشيرتات</h3>
+                        <p class="vx-muted small mb-0">تيشيرتات مخصصة مصممة حول فكرتك.</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="120">
@@ -1598,12 +1646,12 @@
                         <button type="button" class="vx-lb-trigger mx-auto mb-4 overflow-hidden rounded-4 d-block"
                             style="width:100%; max-width: 240px; aspect-ratio: 1; border:1px solid rgba(255,255,255,.3); padding:0; background:none;"
                             data-src="./assets/img/cust/Black Oversized Heavyweight T-Shirt _ Premium Unisex Graphic Tee.jpeg"
-                            data-alt="Custom Apparel" aria-label="View Custom Apparel image">
+                            data-alt="ملابس مخصصة" aria-label="عرض صورة ملابس مخصصة">
                             <img src="./assets/img/cust/Black Oversized Heavyweight T-Shirt _ Premium Unisex Graphic Tee.jpeg"
-                                alt="Custom Apparel" style="width:100%; height:100%; object-fit: cover; display:block;">
+                                alt="ملابس مخصصة" style="width:100%; height:100%; object-fit: cover; display:block;">
                         </button>
-                        <h3 class="fs-6 fw-semibold mb-2">Custom Apparel</h3>
-                        <p class="vx-muted small mb-0">Personalized clothing made to your requirements.</p>
+                        <h3 class="fs-6 fw-semibold mb-2">ملابس مخصصة</h3>
+                        <p class="vx-muted small mb-0">ملابس مخصصة حسب متطلباتك.</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
@@ -1611,12 +1659,12 @@
                         <button type="button" class="vx-lb-trigger mx-auto mb-4 overflow-hidden rounded-4 d-block"
                             style="width:100%; max-width: 240px; aspect-ratio: 1; border:1px solid rgba(255,255,255,.3); padding:0; background:none;"
                             data-src="./assets/img/cust/URBAN Oversized Unisex Streetwear Tee _ Japanese Rooftop Style.jpeg"
-                            data-alt="Branded Clothing" aria-label="View Branded Clothing image">
+                            data-alt="ملابس بعلامة تجارية" aria-label="عرض صورة ملابس بعلامة تجارية">
                             <img src="./assets/img/cust/URBAN Oversized Unisex Streetwear Tee _ Japanese Rooftop Style.jpeg"
-                                alt="Branded Clothing" style="width:100%; height:100%; object-fit: cover; display:block;">
+                                alt="ملابس بعلامة تجارية" style="width:100%; height:100%; object-fit: cover; display:block;">
                         </button>
-                        <h3 class="fs-6 fw-semibold mb-2">Branded Clothing</h3>
-                        <p class="vx-muted small mb-0">Professional apparel for businesses, teams, and organizations.</p>
+                        <h3 class="fs-6 fw-semibold mb-2">ملابس بعلامة تجارية</h3>
+                        <p class="vx-muted small mb-0">ملابس احترافية للشركات والفرق والمؤسسات.</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="360">
@@ -1624,12 +1672,12 @@
                         <button type="button" class="vx-lb-trigger mx-auto mb-4 overflow-hidden rounded-4 d-block"
                             style="width:100%; max-width: 240px; aspect-ratio: 1; border:1px solid rgba(255,255,255,.3); padding:0; background:none;"
                             data-src="./assets/img/cust/Choose Yourself Oversize T-Shirt Modern Streetwear.jpeg"
-                            data-alt="Streetwear" aria-label="View Streetwear image">
+                            data-alt="ستريت وير" aria-label="عرض صورة ستريت وير">
                             <img src="./assets/img/cust/Choose Yourself Oversize T-Shirt Modern Streetwear.jpeg"
-                                alt="Streetwear" style="width:100%; height:100%; object-fit: cover; display:block;">
+                                alt="ستريت وير" style="width:100%; height:100%; object-fit: cover; display:block;">
                         </button>
-                        <h3 class="fs-6 fw-semibold mb-2">Streetwear</h3>
-                        <p class="vx-muted small mb-0">Oversized modern fits for a bold everyday look.</p>
+                        <h3 class="fs-6 fw-semibold mb-2">ستريت وير</h3>
+                        <p class="vx-muted small mb-0">قصوصات عصرية واسعة لإطلالة جريئة يومية.</p>
                     </div>
                 </div>
             </div>
@@ -1642,60 +1690,60 @@
         <div class="container">
             <div class="row align-items-end g-4 mb-10 mb-lg-12" data-aos="fade-up">
                 <div class="col-lg-6">
-                    <p class="vx-label mb-3">Categories</p>
-                    <h2 class="display-6 fw-bold mb-0">Explore by Style</h2>
+                    <p class="vx-label mb-3">الفئات</p>
+                    <h2 class="display-6 fw-bold mb-0">استكشف حسب الذوق</h2>
                 </div>
                 <div class="col-lg-6">
-                    <p class="lead vx-muted mb-0">From anime and gaming to sports and streetwear — find the category that fits your vibe.</p>
+                    <p class="lead vx-muted mb-0">من الأنمي والألعاب إلى الرياضة وستريت وير — ابحث عن الفئة التي تناسب ذوقك.</p>
                 </div>
             </div>
             <div class="vx-cat-list" data-aos="fade-up" data-aos-delay="100">
                 <a href="#contact" class="vx-cat-row">
                     <span class="vx-cat-num">01</span>
-                    <span class="vx-cat-name">Anime &amp; Manga</span>
-                    <span class="vx-cat-desc">Characters, quotes, and art inspired by your favorites.</span>
+                    <span class="vx-cat-name">الأنمي والمانغا</span>
+                    <span class="vx-cat-desc">شخصيات وعبارات وفنون مستوحاة من المفضّل لديك.</span>
                     <span class="vx-cat-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
                 </a>
                 <a href="#contact" class="vx-cat-row">
                     <span class="vx-cat-num">02</span>
-                    <span class="vx-cat-name">Gaming</span>
-                    <span class="vx-cat-desc">Console, PC, and esports designs for every player.</span>
+                    <span class="vx-cat-name">الألعاب</span>
+                    <span class="vx-cat-desc">تصاميم لأجهزة الألعاب والحاسوب والرياضات الإلكترونية لكل لاعب.</span>
                     <span class="vx-cat-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
                 </a>
                 <a href="#contact" class="vx-cat-row">
                     <span class="vx-cat-num">03</span>
-                    <span class="vx-cat-name">Streetwear</span>
-                    <span class="vx-cat-desc">Oversized fits and bold prints with an urban feel.</span>
+                    <span class="vx-cat-name">ستريت وير</span>
+                    <span class="vx-cat-desc">قصوصات واسعة وطبعات جريئة بطابع حضري.</span>
                     <span class="vx-cat-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
                 </a>
                 <a href="#contact" class="vx-cat-row">
                     <span class="vx-cat-num">04</span>
-                    <span class="vx-cat-name">Music</span>
-                    <span class="vx-cat-desc">Band, tour, and artist-inspired apparel.</span>
+                    <span class="vx-cat-name">الموسيقى</span>
+                    <span class="vx-cat-desc">ملابس مستوحاة من الفرق والجولات والفنانين.</span>
                     <span class="vx-cat-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
                 </a>
                 <a href="#contact" class="vx-cat-row">
                     <span class="vx-cat-num">05</span>
-                    <span class="vx-cat-name">Sports</span>
-                    <span class="vx-cat-desc">Team kits and matching apparel for your club.</span>
+                    <span class="vx-cat-name">الرياضة</span>
+                    <span class="vx-cat-desc">أطقم فرق وملابس متناسقة لناديك.</span>
                     <span class="vx-cat-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
                 </a>
                 <a href="#contact" class="vx-cat-row">
                     <span class="vx-cat-num">06</span>
-                    <span class="vx-cat-name">Events</span>
-                    <span class="vx-cat-desc">Weddings, birthdays, and special celebrations.</span>
+                    <span class="vx-cat-name">المناسبات</span>
+                    <span class="vx-cat-desc">أعراس وأعياد ميلاد واحتفالات خاصة.</span>
                     <span class="vx-cat-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
                 </a>
                 <a href="#contact" class="vx-cat-row">
                     <span class="vx-cat-num">07</span>
-                    <span class="vx-cat-name">Personalized Gifts</span>
-                    <span class="vx-cat-desc">Custom pieces made to surprise someone special.</span>
+                    <span class="vx-cat-name">هدايا مخصصة</span>
+                    <span class="vx-cat-desc">قطع مخصصة تُبهج شخصاً مميزاً.</span>
                     <span class="vx-cat-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
                 </a>
                 <a href="#contact" class="vx-cat-row">
                     <span class="vx-cat-num">08</span>
-                    <span class="vx-cat-name">Business</span>
-                    <span class="vx-cat-desc">Branded uniforms and corporate apparel.</span>
+                    <span class="vx-cat-name">الأعمال</span>
+                    <span class="vx-cat-desc">أزياء موحّدة وملابس للشركات.</span>
                     <span class="vx-cat-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
                 </a>
             </div>
@@ -1706,18 +1754,17 @@
     <section id="about" class="vx-section py-10 py-xl-12">
         <div class="container">
             <div class="text-center mx-auto mb-10 mb-lg-11" style="max-width: 720px;" data-aos="fade-up">
-                <p class="vx-label mb-3">About VOLTEX</p>
-                <h2 class="display-6 fw-bold mb-3">Why VOLTEX?</h2>
-                <p class="lead vx-muted mb-0">A custom studio built around one simple idea: your imagination, made
-                    real.</p>
+                <p class="vx-label mb-3">عن فولتكس</p>
+                <h2 class="display-6 fw-bold mb-3">لماذا فولتكس؟</h2>
+                <p class="lead vx-muted mb-0">استوديو تخصيص مبني على فكرة بسيطة: خيالك يصبح واقعاً.</p>
             </div>
             <div class="row g-5 g-lg-8">
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
                     <div class="vx-feature">
                         <span class="vx-feature-icon"><i class="bi bi-person-check" aria-hidden="true"></i></span>
                         <div>
-                            <h4>Made for You</h4>
-                            <p>Customization built around your requirements.</p>
+                            <h4>مخصص لك</h4>
+                            <p>تخصيص مبني على متطلباتك.</p>
                         </div>
                     </div>
                 </div>
@@ -1725,8 +1772,8 @@
                     <div class="vx-feature">
                         <span class="vx-feature-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
                         <div>
-                            <h4>Quality First</h4>
-                            <p>Attention to quality across design, customization, printing, and preparation.</p>
+                            <h4>الجودة أولاً</h4>
+                            <p>اهتمام بالجودة في التصميم والتخصيص والطباعة والتحضير.</p>
                         </div>
                     </div>
                 </div>
@@ -1734,8 +1781,8 @@
                     <div class="vx-feature">
                         <span class="vx-feature-icon"><i class="bi bi-lightning-charge" aria-hidden="true"></i></span>
                         <div>
-                            <h4>Fast &amp; Flexible</h4>
-                            <p>From individual pieces to larger orders, we adapt to your needs.</p>
+                            <h4>سريع ومرن</h4>
+                            <p>من القطع الفردية إلى الطلبات الكبيرة، نتكيّف مع احتياجاتك.</p>
                         </div>
                     </div>
                 </div>
@@ -1743,8 +1790,8 @@
                     <div class="vx-feature">
                         <span class="vx-feature-icon"><i class="bi bi-bag-check" aria-hidden="true"></i></span>
                         <div>
-                            <h4>Easy Ordering</h4>
-                            <p>A straightforward experience from idea to finished product.</p>
+                            <h4>طلب سهل</h4>
+                            <p>تجربة مباشرة من الفكرة إلى المنتج النهائي.</p>
                         </div>
                     </div>
                 </div>
@@ -1752,18 +1799,18 @@
                     <div class="vx-feature">
                         <span class="vx-feature-icon"><i class="bi bi-brush" aria-hidden="true"></i></span>
                         <div>
-                            <h4>Professional Design</h4>
-                            <p>Creative, print-ready designs that help your clothing or brand stand out.</p>
+                            <h4>تصميم احترافي</h4>
+                            <p>تصاميم إبداعية جاهزة للطباعة تجعل ملابسك أو علامتك بارزة.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-8" data-aos="fade-up">
                 <div class="d-flex flex-wrap justify-content-center gap-2">
-                    <span class="vx-chip"><i class="bi bi-tag"></i> Attractive pricing</span>
-                    <span class="vx-chip"><i class="bi bi-box-seam"></i> Product variety</span>
-                    <span class="vx-chip"><i class="bi bi-eye"></i> Transparent process</span>
-                    <span class="vx-chip"><i class="bi bi-life-preserver"></i> After-sales support</span>
+                    <span class="vx-chip"><i class="bi bi-tag"></i> أسعار جذابة</span>
+                    <span class="vx-chip"><i class="bi bi-box-seam"></i> تنوّع المنتجات</span>
+                    <span class="vx-chip"><i class="bi bi-eye"></i> عملية واضحة</span>
+                    <span class="vx-chip"><i class="bi bi-life-preserver"></i> دعم ما بعد البيع</span>
                 </div>
             </div>
         </div>
@@ -1774,9 +1821,9 @@
         style="background: radial-gradient(circle at 25% 20%, rgba(255,255,255,.04), transparent 45%), radial-gradient(circle at 75% 85%, rgba(255,255,255,.03), transparent 45%), var(--vx-bg);">
         <div class="container">
             <div class="text-center mx-auto mb-9 mb-lg-10" style="max-width: 640px;" data-aos="fade-up">
-                <p class="vx-label mb-3">Reviews</p>
-                <h2 class="display-6 fw-bold mb-4">What People Say About VOLTEX</h2>
-                <p class="lead vx-muted mb-0">Real feedback from customers who turned their ideas into custom clothing.
+                <p class="vx-label mb-3">آراء العملاء</p>
+                <h2 class="display-6 fw-bold mb-4">ماذا يقول الناس عن فولتكس</h2>
+                <p class="lead vx-muted mb-0">آراء حقيقية من عملاء حوّلوا أفكارهم إلى ملابس مخصصة.
                 </p>
             </div>
                                                     <div class="vx-review-marquee" data-aos="fade-up" data-aos-delay="80">
@@ -1784,7 +1831,7 @@
                     <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1793,12 +1840,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"The custom T-shirt came out exactly like the design I sent. Great quality and the print looks amazing. Highly recommended!"</p>
+                        <p class="vx-review-text mb-4">"التيشيرت المخصص ظهر بالضبط مثل التصميم الذي أرسلته. جودة رائعة والطباعة تبدو مذهلة. أنصح به بشدة!"</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">A</span>
                             <div>
-                                <div class="fw-semibold">Achraf</div>
-                                <small class="vx-muted">Ordered Custom T-Shirts</small>
+                                <div class="fw-semibold">أشرف</div>
+                                <small class="vx-muted">طلب تيشيرتات مخصصة</small>
                             </div>
                         </div>
                     </div>
@@ -1806,7 +1853,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1815,12 +1862,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"They helped me bring my idea to life from scratch. The team designed everything and the final result was better than I expected."</p>
+                        <p class="vx-review-text mb-4">"ساعدوني في إحياء فكرتي من الصفر. صمّم الفريق كل شيء والنتيجة النهائية كانت أفضل مما توقعت."</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">M</span>
                             <div>
-                                <div class="fw-semibold">Mehdi</div>
-                                <small class="vx-muted">Design &amp; Print</small>
+                                <div class="fw-semibold">مهدي</div>
+                                <small class="vx-muted">تصميم وطباعة</small>
                             </div>
                         </div>
                     </div>
@@ -1828,7 +1875,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1837,12 +1884,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"Ordered matching outfits for our event and everyone loved them. Fast, organized, and the customized prints were top quality."</p>
+                        <p class="vx-review-text mb-4">"طلبت أطقم متناسقة لمناسبتنا وأعجبت الجميع. تسليم سريع ومنظم والطبعات المخصصة كانت بأعلى جودة."</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">S</span>
                             <div>
-                                <div class="fw-semibold">Salim</div>
-                                <small class="vx-muted">Event Group Order</small>
+                                <div class="fw-semibold">سليم</div>
+                                <small class="vx-muted">طلب جماعي لمناسبة</small>
                             </div>
                         </div>
                     </div>
@@ -1850,7 +1897,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1859,12 +1906,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"The oversized streetwear fit is perfect. Communication was smooth and the delivery was on time. Will order again."</p>
+                        <p class="vx-review-text mb-4">"قصة الستريت وير الواسعة مثالية. التواص! كان سلساً والتسليم في الوقت المحدد. سأطلب مرة أخرى."</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">Y</span>
                             <div>
-                                <div class="fw-semibold">Yassine</div>
-                                <small class="vx-muted">Streetwear Order</small>
+                                <div class="fw-semibold">ياسين</div>
+                                <small class="vx-muted">طلب ستريت وير</small>
                             </div>
                         </div>
                     </div>
@@ -1872,7 +1919,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1881,12 +1928,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"Perfect quality for our club jerseys. They listened to every detail and the team looked great. Thank you VOLTEX!"</p>
+                        <p class="vx-review-text mb-4">"جودة مثالية لقمصان نادينا. استمعوا لكل التفاصيل والفريق بدا رائعاً. شكراً فولتكس!"</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">N</span>
                             <div>
-                                <div class="fw-semibold">Nadia</div>
-                                <small class="vx-muted">Club Jerseys</small>
+                                <div class="fw-semibold">نادية</div>
+                                <small class="vx-muted">قمصان النادي</small>
                             </div>
                         </div>
                     </div>
@@ -1894,7 +1941,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1903,12 +1950,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"Brought my own logo and they printed it beautifully on branded clothing. Clean, professional finish. Very satisfied."</p>
+                        <p class="vx-review-text mb-4">"أحضرت شعاري الخاص وطُبع بشكل جميل على ملابس مخصصة. لمسة نهائية نظيفة واحترافية. راضٍ جداً."</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">K</span>
                             <div>
-                                <div class="fw-semibold">Karim</div>
-                                <small class="vx-muted">Branded Clothing</small>
+                                <div class="fw-semibold">كريم</div>
+                                <small class="vx-muted">ملابس بعلامة تجارية</small>
                             </div>
                         </div>
                     </div>
@@ -1916,7 +1963,7 @@
                     <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1925,12 +1972,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"The custom T-shirt came out exactly like the design I sent. Great quality and the print looks amazing. Highly recommended!"</p>
+                        <p class="vx-review-text mb-4">"التيشيرت المخصص ظهر بالضبط مثل التصميم الذي أرسلته. جودة رائعة والطباعة تبدو مذهلة. أنصح به بشدة!"</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">A</span>
                             <div>
-                                <div class="fw-semibold">Achraf</div>
-                                <small class="vx-muted">Ordered Custom T-Shirts</small>
+                                <div class="fw-semibold">أشرف</div>
+                                <small class="vx-muted">طلب تيشيرتات مخصصة</small>
                             </div>
                         </div>
                     </div>
@@ -1938,7 +1985,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1947,12 +1994,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"They helped me bring my idea to life from scratch. The team designed everything and the final result was better than I expected."</p>
+                        <p class="vx-review-text mb-4">"ساعدوني في إحياء فكرتي من الصفر. صمّم الفريق كل شيء والنتيجة النهائية كانت أفضل مما توقعت."</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">M</span>
                             <div>
-                                <div class="fw-semibold">Mehdi</div>
-                                <small class="vx-muted">Design &amp; Print</small>
+                                <div class="fw-semibold">مهدي</div>
+                                <small class="vx-muted">تصميم وطباعة</small>
                             </div>
                         </div>
                     </div>
@@ -1960,7 +2007,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1969,12 +2016,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"Ordered matching outfits for our event and everyone loved them. Fast, organized, and the customized prints were top quality."</p>
+                        <p class="vx-review-text mb-4">"طلبت أطقم متناسقة لمناسبتنا وأعجبت الجميع. تسليم سريع ومنظم والطبعات المخصصة كانت بأعلى جودة."</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">S</span>
                             <div>
-                                <div class="fw-semibold">Salim</div>
-                                <small class="vx-muted">Event Group Order</small>
+                                <div class="fw-semibold">سليم</div>
+                                <small class="vx-muted">طلب جماعي لمناسبة</small>
                             </div>
                         </div>
                     </div>
@@ -1982,7 +2029,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -1991,12 +2038,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"The oversized streetwear fit is perfect. Communication was smooth and the delivery was on time. Will order again."</p>
+                        <p class="vx-review-text mb-4">"قصة الستريت وير الواسعة مثالية. التواص! كان سلساً والتسليم في الوقت المحدد. سأطلب مرة أخرى."</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">Y</span>
                             <div>
-                                <div class="fw-semibold">Yassine</div>
-                                <small class="vx-muted">Streetwear Order</small>
+                                <div class="fw-semibold">ياسين</div>
+                                <small class="vx-muted">طلب ستريت وير</small>
                             </div>
                         </div>
                     </div>
@@ -2004,7 +2051,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -2013,12 +2060,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"Perfect quality for our club jerseys. They listened to every detail and the team looked great. Thank you VOLTEX!"</p>
+                        <p class="vx-review-text mb-4">"جودة مثالية لقمصان نادينا. استمعوا لكل التفاصيل والفريق بدا رائعاً. شكراً فولتكس!"</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">N</span>
                             <div>
-                                <div class="fw-semibold">Nadia</div>
-                                <small class="vx-muted">Club Jerseys</small>
+                                <div class="fw-semibold">نادية</div>
+                                <small class="vx-muted">قمصان النادي</small>
                             </div>
                         </div>
                     </div>
@@ -2026,7 +2073,7 @@
 <div class="vx-review-item">
                     <div class="vx-review vx-card h-100 p-4 p-lg-5">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="vx-review-stars" aria-label="5 out of 5 stars">
+                            <span class="vx-review-stars" aria-label="5 من 5 نجوم">
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
                                 <i class="bi bi-star-fill" aria-hidden="true"></i>
@@ -2035,12 +2082,12 @@
                             </span>
                             <i class="bi bi-quote" aria-hidden="true" style="font-size:1.6rem; color:rgba(255,255,255,.25);"></i>
                         </div>
-                        <p class="vx-review-text mb-4">"Brought my own logo and they printed it beautifully on branded clothing. Clean, professional finish. Very satisfied."</p>
+                        <p class="vx-review-text mb-4">"أحضرت شعاري الخاص وطُبع بشكل جميل على ملابس مخصصة. لمسة نهائية نظيفة واحترافية. راضٍ جداً."</p>
                         <div class="d-flex align-items-center gap-3 mt-auto">
                             <span class="vx-review-avatar">K</span>
                             <div>
-                                <div class="fw-semibold">Karim</div>
-                                <small class="vx-muted">Branded Clothing</small>
+                                <div class="fw-semibold">كريم</div>
+                                <small class="vx-muted">ملابس بعلامة تجارية</small>
                             </div>
                         </div>
                     </div>
@@ -2055,10 +2102,9 @@
         style="background: var(--vx-bg); border-top:1px solid var(--vx-border); border-bottom:1px solid var(--vx-border);">
         <div class="container">
             <div class="text-center mx-auto mb-9 mb-lg-10" style="max-width: 640px;" data-aos="fade-up">
-                <p class="vx-label mb-3">Follow VOLTEX</p>
-                <h2 class="display-6 fw-bold mb-4">Stay Connected</h2>
-                <p class="lead vx-muted mb-0">Follow us on social media for new designs, drops, and behind-the-scenes
-                    content.</p>
+                <p class="vx-label mb-3">تابع فولتكس</p>
+                <h2 class="display-6 fw-bold mb-4">ابقَ على تواصل</h2>
+                <p class="lead vx-muted mb-0">تابعنا على وسائل التواصل الاجتماعي لتصاميم وإصدارات جديدة ومحتوى من كواليس العمل.</p>
             </div>
             <div class="d-flex flex-wrap justify-content-center gap-4 gap-lg-5" data-aos="fade-up" data-aos-delay="100">
                 <a class="vx-social-bw" href="https://www.instagram.com/vol_tex7?igsi=eTMzZGZsZmRlaHln" target="_blank" rel="noopener" aria-label="VOLTEX on Instagram" title="Instagram">
@@ -2091,22 +2137,21 @@
         <div class="container">
             <div class="row g-6 g-lg-10 align-items-center">
                 <div class="col-lg-5" data-aos="fade-up">
-                    <p class="vx-label mb-3">Contact</p>
-                    <h2 class="display-6 fw-bold mb-4">Let's Talk About Your Order.</h2>
-                    <p class="lead vx-muted mb-6">Tell us what you want to create — a single piece, a team order, or a
-                        full branded collection. We'll handle the rest.</p>
+                    <p class="vx-label mb-3">اتصل بنا</p>
+                    <h2 class="display-6 fw-bold mb-4">لنتحدّث عن طلبك.</h2>
+                    <p class="lead vx-muted mb-6">أخبرنا بما تريد إنشاءه — قطعة واحدة أو طلب فريق أو تشكيلة كاملة بعلامتك التجارية. سنتكفّل بالباقي.</p>
                     <div class="d-flex flex-column gap-4">
                         <div class="d-flex align-items-start gap-3">
                             <span class="vx-feature-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></span>
                             <div>
-                                <h4 class="fs-6 fw-bold mb-1">Our Address</h4>
-                                <p class="vx-muted mb-0 small">Sidi Ali Mellal, Tiaret, Algeria</p>
+                                <h4 class="fs-6 fw-bold mb-1">عنواننا</h4>
+                                <p class="vx-muted mb-0 small">سيدي علي ملل، تيارت، الجزائر</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-start gap-3">
                             <span class="vx-feature-icon"><i class="bi bi-envelope" aria-hidden="true"></i></span>
                             <div>
-                                <h4 class="fs-6 fw-bold mb-1">Email</h4>
+                                <h4 class="fs-6 fw-bold mb-1">البريد الإلكتروني</h4>
                                 <p class="vx-muted mb-0 small">
                                     <a href="mailto:voltex.tiaret@gmail.com" class="vx-contact-link">voltex.tiaret@gmail.com</a>
                                 </p>
@@ -2115,7 +2160,7 @@
                         <div class="d-flex align-items-start gap-3">
                             <span class="vx-feature-icon"><i class="bi bi-telephone" aria-hidden="true"></i></span>
                             <div>
-                                <h4 class="fs-6 fw-bold mb-1">Phone &amp; WhatsApp</h4>
+                                <h4 class="fs-6 fw-bold mb-1">الهاتف وواتساب</h4>
                                 <p class="vx-muted mb-0 small">
                                     <a href="tel:0558340669" class="vx-contact-link">0558340669</a>
                                 </p>
@@ -2124,42 +2169,42 @@
                         <div class="d-flex align-items-start gap-3">
                             <span class="vx-feature-icon"><i class="bi bi-clock" aria-hidden="true"></i></span>
                             <div>
-                                <h4 class="fs-6 fw-bold mb-1">Availability</h4>
-                                <p class="vx-muted mb-0 small">Open 24/24 hours &middot; 7/7 days</p>
+                                <h4 class="fs-6 fw-bold mb-1">التوفر</h4>
+                                <p class="vx-muted mb-0 small">متاحون 24/24 ساعة &middot; 7/7 أيام</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7" data-aos="fade-up" data-aos-delay="120">
                     <div class="vx-panel p-5 p-lg-7">
-                        <h3 class="fs-4 fw-bold mb-4">Customer Service</h3>
+                        <h3 class="fs-4 fw-bold mb-4">خدمة العملاء</h3>
                         <form class="vx-form" action="mailto:voltex.tiaret@gmail.com" method="post"
                             enctype="text/plain">
                             <div class="row g-4">
                                 <div class="col-md-6">
-                                    <label class="form-label" for="vxName">Full Name*</label>
+                                    <label class="form-label" for="vxName">الاسم الكامل*</label>
                                     <input type="text" class="form-control" id="vxName" name="Full Name"
-                                        placeholder="Your name" aria-label="Full name" required>
+                                        placeholder="اسمك" aria-label="الاسم الكامل" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label" for="vxEmail">Email*</label>
-                                    <input type="email" class="form-control" id="vxEmail" name="Email"
-                                        placeholder="you@email.com" aria-label="Email" required>
+                                    <label class="form-label" for="vxالبريد الإلكتروني">البريد الإلكتروني*</label>
+                                    <input type="email" class="form-control" id="vxالبريد الإلكتروني" name="البريد الإلكتروني"
+                                        placeholder="you@email.com" aria-label="البريد الإلكتروني" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label" for="vxPhone">Phone</label>
-                                    <input type="tel" class="form-control" id="vxPhone" name="Phone"
-                                        placeholder="+country code and number" aria-label="Phone">
+                                    <label class="form-label" for="vxالهاتف">الهاتف</label>
+                                    <input type="tel" class="form-control" id="vxالهاتف" name="الهاتف"
+                                        placeholder="رمز الدولة والرقم" aria-label="الهاتف">
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label" for="vxMsg">Your Idea / Message*</label>
-                                    <textarea class="form-control" id="vxMsg" name="Message" rows="4"
-                                        placeholder="Describe your idea, design, colors, sizes, quantity, or any details..."
-                                        aria-label="Message" required></textarea>
+                                    <label class="form-label" for="vxMsg">فكرتك / رسالتك*</label>
+                                    <textarea class="form-control" id="vxMsg" name="الرسالة" rows="4"
+                                        placeholder="صف فكرتك أو تصميمك أو ألوانك أو مقاساتك أو الكمية أو أي تفاصيل..."
+                                        aria-label="الرسالة" required></textarea>
                                 </div>
                                 <div class="col-12 d-flex flex-wrap align-items-center gap-3">
-                                    <button type="submit" class="btn btn-vx btn-lg px-5 py-3">Send Email</button>
-                                    <span class="vx-mono text-secondary small">We'll follow up with you shortly</span>
+                                    <button type="submit" class="btn btn-vx btn-lg px-5 py-3">إرسال البريد</button>
+                                    <span class="vx-mono text-secondary small">سنعاود التواصل معك قريباً</span>
                                 </div>
                             </div>
                         </form>
@@ -2174,13 +2219,12 @@
         <div class="container">
             <div class="row g-6 g-md-8 pb-8 mb-4">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <a class="vx-brand mb-4" href="#home" aria-label="VOLTEX home">
-                        <img src="./assets/img/white.png" alt="VOLTEX logo mark" class="vx-brand-mark" width="469"
+                    <a class="vx-brand mb-4" href="#home" aria-label="فولتكس الرئيسية">
+                        <img src="./assets/img/white.png" alt="شعار فولتكس" class="vx-brand-mark" width="469"
                             height="1008">
                         <img src="./assets/img/name.png" alt="VOLTEX" class="vx-brand-name" width="1580" height="231">
                     </a>
-                    <p class="vx-muted mb-6" style="max-width: 320px;">Custom clothing, printing, design, and branding —
-                        built around your ideas.</p>
+                    <p class="vx-muted mb-6" style="max-width: 320px;">ملابس مخصصة وطباعة وتصميم وعلامة تجارية — مبنيّة حول أفكارك.</p>
                     <div class="d-flex gap-2">
                         <a class="vx-social" href="https://www.instagram.com/vol_tex7?igsi=eTMzZGZsZmRlaHln" target="_blank" rel="noopener" aria-label="VOLTEX on Instagram" title="Instagram">
                             <i class="bi bi-instagram" aria-hidden="true"></i>
@@ -2201,44 +2245,44 @@
                 </div>
 
                 <div class="col-6 col-md-4 col-lg-2 offset-lg-1">
-                    <p class="vx-foot-title">Navigate</p>
+                    <p class="vx-foot-title">التنقل</p>
                     <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#social">Contact</a></li>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#how-it-works">كيف نعمل</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#social">اتصل بنا</a></li>
                     </ul>
                 </div>
 
                 <div class="col-6 col-md-4 col-lg-3">
-                    <p class="vx-foot-title">Services</p>
+                    <p class="vx-foot-title">الخدمات</p>
                     <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><a href="#services">Custom Clothing</a></li>
-                        <li><a href="#services">Team &amp; Group Orders</a></li>
-                        <li><a href="#services">Business Clothing</a></li>
-                        <li><a href="#services">Event Clothing</a></li>
-                        <li><a href="#services">Design &amp; Visual Identity</a></li>
-                        <li><a href="#services">Printing &amp; Branding</a></li>
+                        <li><a href="#services">ملابس مخصصة</a></li>
+                        <li><a href="#services">طلبات الفرق والمجموعات</a></li>
+                        <li><a href="#services">ملابس الأعمال</a></li>
+                        <li><a href="#services">ملابس المناسبات</a></li>
+                        <li><a href="#services">التصميم والهوية البصرية</a></li>
+                        <li><a href="#services">الطباعة والعلامة التجارية</a></li>
                     </ul>
                 </div>
 
                 <div class="col-6 col-md-4 col-lg-2">
-                    <p class="vx-foot-title">Get Started</p>
+                    <p class="vx-foot-title">ابدأ الآن</p>
                     <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><a href="#contact">Start an Order</a></li>
-                        <li><a href="#social">Customer Service</a></li>
-                        <li><a href="#contact">Group Orders</a></li>
-                        <li><a href="#about">Why VOLTEX</a></li>
+                        <li><a href="#contact">ابدأ طلباً</a></li>
+                        <li><a href="#social">خدمة العملاء</a></li>
+                        <li><a href="#contact">طلبات جماعية</a></li>
+                        <li><a href="#about">لماذا فولتكس</a></li>
                     </ul>
                 </div>
 
                 <div class="col-12 col-md-8 col-lg-4">
-                    <p class="vx-foot-title">Find Us</p>
+                    <p class="vx-foot-title">أين تجدنا</p>
                     <ul class="list-unstyled d-flex flex-column gap-2 vx-muted small mb-0">
                         <li class="d-flex align-items-start gap-2">
                             <i class="bi bi-geo-alt" aria-hidden="true"></i>
-                            <span>Sidi Ali Mellal, Tiaret, Algeria</span>
+                            <span>سيدي علي ملل، تيارت، الجزائر</span>
                         </li>
                         <li class="d-flex align-items-start gap-2">
                             <i class="bi bi-telephone" aria-hidden="true"></i>
@@ -2250,7 +2294,7 @@
                         </li>
                         <li class="d-flex align-items-start gap-2">
                             <i class="bi bi-clock" aria-hidden="true"></i>
-                            <span>Available 24/24 &middot; 7/7</span>
+                            <span>متاحون 24/24 &middot; 7/7</span>
                         </li>
                     </ul>
                 </div>
@@ -2259,20 +2303,19 @@
             <div class="pt-5" style="border-top: 1px solid var(--vx-border);">
                 <div class="row align-items-center g-3">
                     <div class="col-md-6">
-                        <p class="vx-muted small mb-0">&copy; 2026 VOLTEX. All rights reserved.</p>
+                        <p class="vx-muted small mb-0">&copy; 2026 فولتكس. جميع الحقوق محفوظة.</p>
                     </div>
                     <div class="col-md-6 text-md-end">
-                        <p class="vx-mono text-secondary mb-0" style="font-size:.6rem; letter-spacing:.18em;">CUSTOM
-                            CLOTHING &middot; PRINTING &middot; DESIGN &middot; BRANDING</p>
+                        <p class="vx-mono text-secondary mb-0" style="font-size:.6rem; letter-spacing:.18em;">ملابس مخصصة &middot; طباعة &middot; تصميم &middot; علامة تجارية</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to top button -->
-    <button class="back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle" type="button" aria-label="Back to top"
-        aria-hidden="true" title="Back to top">
+    <!-- العودة إلى الأعلى button -->
+    <button class="back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle" type="button" aria-label="العودة إلى الأعلى"
+        aria-hidden="true" title="العودة إلى الأعلى">
         <i class="bi bi-chevron-up fs-5" aria-hidden="true"></i>
     </button>
 
