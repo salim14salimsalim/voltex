@@ -1134,9 +1134,8 @@
         }
         .vx-review-track {
             display: flex;
-            gap: 1.5rem;
             width: max-content;
-            animation: vxMarquee 40s linear infinite;
+            animation: vxMarquee 28s linear infinite;
         }
         .vx-review-marquee:hover .vx-review-track {
             animation-play-state: paused;
@@ -1147,6 +1146,7 @@
         }
         .vx-review-item {
             flex: 0 0 320px;
+            margin-right: 1.5rem;
         }
         .vx-review {
             display: flex;
@@ -1206,6 +1206,20 @@
             color: #000000;
             border-color: #ffffff;
             transform: translateY(-6px);
+        }
+        @media (max-width: 575.98px) {
+            .vx-social-bw {
+                width: 92px;
+                padding: 1.1rem .75rem .95rem;
+                gap: .55rem;
+                border-radius: 16px;
+            }
+            .vx-social-bw i {
+                font-size: 1.7rem;
+            }
+            .vx-social-bw span {
+                font-size: .72rem;
+            }
         }
 
         .vx-contact-link {
@@ -2442,7 +2456,14 @@
                         var offset = navbar ? navbar.offsetHeight : 0;
                         var rect = target.getBoundingClientRect();
                         var targetY = window.scrollY + rect.top - offset - 12;
-                        window.scrollTo({ top: targetY, behavior: 'smooth' });
+                        try {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } catch (err) {
+                            window.scrollTo({ top: targetY, behavior: 'smooth' });
+                        }
+                        if (hash && hash.length > 1) {
+                            try { history.replaceState(null, '', hash); } catch (err2) { /* noop */ }
+                        }
                         if (collapseEl && collapseEl.classList.contains('show')) {
                             var bsCollapse = bootstrap.Collapse.getInstance(collapseEl) || new bootstrap.Collapse(collapseEl);
                             bsCollapse.hide();
